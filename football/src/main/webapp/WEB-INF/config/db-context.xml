@@ -6,11 +6,11 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName"
-			value="com.mysql.jdbc.Driver" />
+			value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/football?useSSL=false&amp;" />
+			value="jdbc:oracle:thin:@127.0.0.1:1521:xe" />
 		<property name="username" value="admin" />
-		<property name="password" value="1234" />
+		<property name="password" value="1111" />
 	</bean>
 
 	 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
