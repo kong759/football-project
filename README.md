@@ -1,6 +1,6 @@
 # football-project-env
 
-13.aug.2019 - db changed - mysql to oracle
+13.aug.2019 - db changed - mysql to oracle<br/>
 14.aug.2019 - oracle connection test done
 
 ## Versions
