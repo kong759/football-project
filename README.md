@@ -1,6 +1,7 @@
 # football-project-env
 
-05.aug.2019 - mybatis connection test done
+13.aug.2019 - db changed - mysql to oracle
+14.aug.2019 - oracle connection test done
 
 ## Versions
 
@@ -20,10 +21,12 @@ jstl 1.2
 
 dbcp2 2.1.1
 
-mysql 5.0.8
+oracle DB 11.2.0 XE
 
 mybatis 3.2.1
 
 mybatis-spring 1.2.0
 
+---
 
+05.aug.2019 - mybatis connection test done
