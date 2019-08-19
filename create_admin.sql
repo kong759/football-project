@@ -17,7 +17,9 @@ GRANT CREATE TYPE TO admin;
 GRANT CREATE VIEW TO admin;
 GRANT RESOURCE TO admin;
 
---- test table
+-- test table
+-- At admin account
+
 CREATE TABLE TEST(
 	test VARCHAR2(10)
 );
