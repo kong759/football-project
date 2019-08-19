@@ -1,4 +1,4 @@
-package com.dae.football;
+package kr.co.sist.football.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

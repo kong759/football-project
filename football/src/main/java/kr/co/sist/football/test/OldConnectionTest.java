@@ -1,4 +1,4 @@
-package com.dae.football.test;
+package kr.co.sist.football.test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
