@@ -1,3 +1,5 @@
+# Maven
+
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -11,8 +13,35 @@ buildNumber.properties
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
 
-.metadata
+# Servers
 Servers
-*/target
+
+# Java
 */test
-.settings
+*.class
+*.log
+upload/
+logs/
+
+# eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.project
+.externalToolBuilders/
+*.launch
+.classpath
+.factorypath
+.buildpath
+.target
+.tern-project
+.springBeans
+.recommenders/
