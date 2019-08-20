@@ -1,4 +1,4 @@
-package kr.co.sist.football.test;
+package kr.co.sist.football.test.model.dto;
 
 public class Test {
 	private String test;

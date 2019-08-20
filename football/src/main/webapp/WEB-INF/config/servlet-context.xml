@@ -27,11 +27,6 @@
 			expression="com.dae.football.*.controller.*" />
 	</context:component-scan>
 
-	<beans:bean class="mybatis.MybatisConnector">
-		<beans:constructor-arg>
-			<beans:value>Oracle</beans:value>
-		</beans:constructor-arg>
-	</beans:bean>
 
 
 </beans:beans>

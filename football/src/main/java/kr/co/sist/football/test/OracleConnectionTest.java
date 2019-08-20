@@ -13,7 +13,7 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class OracleConnectionTest {
 	public static void main(String[] args) {
-		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("/db-context.xml");
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("/db-config.xml");
 		sessionTest(ctx);
 		connectionTest(ctx);
 
