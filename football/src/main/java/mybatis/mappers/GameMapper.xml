@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mappers.GameMapper">
+
+	<select id="test" parameterType="string"
+		resultType="kr.co.sist.football.game.model.dto.Game_InfoDBBean">
+		select * from test
+	</select>
+	
+	<select id="getGameCount" parameterType="int" resultType="int">
+		select nvl(count(*),0)  from game_info  where kind = ? and date_format(reg_date, '%y-%M-%d') = ?
+	</select>
+	
+	<select id="getGamesByDate" parameterType="hashmap" 
+	resultType="kr.co.sist.football.game.model.dto.Game_InfoDBBean">
+		select * from game_info where kind = ? and date_format(reg_date, '%y-%M-%d') = ?
+	</select>
+</mapper>

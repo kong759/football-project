@@ -1,4 +1,4 @@
-package kr.co.sist.football.test;
+package kr.co.sist.football;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.context.support.GenericXmlApplicationContext;

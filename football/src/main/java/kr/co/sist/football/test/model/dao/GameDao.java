@@ -6,19 +6,23 @@ import org.springframework.stereotype.Repository;
 
 import mybatis.config.MybatisConnector;
 
+
 @Repository
-public class TestDao {
+public class GameDao {
+	
+	private final String namespace = "mybatis.mappers.GameMapper";
+	
 	public MybatisConnector mybatisconnector;
 	
-	private final String namespace = "mybatis.mappers.TestMapper";
 
-	public TestDao() {
+	public GameDao() {
 	}
 
 	@Autowired
-	public TestDao(MybatisConnector mybatisconnector) {
+	public GameDao(MybatisConnector mybatisconnector) {
 		this.mybatisconnector = mybatisconnector;
 	}
+	//AutoWired를 생성자 형식으로 해 놓으면 더 괜찮다고 해놔서 이렇게 해놓은거임 
 	
 	public void test() throws Exception {
 		SqlSession sqlSession = mybatisconnector.sqlSession();
