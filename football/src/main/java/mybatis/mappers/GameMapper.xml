@@ -2,18 +2,40 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mybatis.mappers.GameMapper">
+	<select id="dateTest" resultType="Date">
+		select game_date from game_info
+		where id = 0
+	</select>
+
 
 	<select id="test" parameterType="string"
-		resultType="kr.co.sist.football.game.model.dto.Game_InfoDBBean">
+		resultType="kr.co.sist.football.test.model.dto.GameInfo">
 		select * from test
 	</select>
-	
-	<select id="getGameCount" parameterType="int" resultType="int">
-		select nvl(count(*),0)  from game_info  where kind = ? and date_format(reg_date, '%y-%M-%d') = ?
+
+	<select id="selectGameCount" parameterType="int"
+		resultType="int">
+		select nvl(count(*),0) from game_info where kind = #{kind}
+		<!-- and date_format(reg_date, '%y-%M-%d') = ? -->
 	</select>
-	
-	<select id="getGamesByDate" parameterType="hashmap" 
-	resultType="kr.co.sist.football.game.model.dto.Game_InfoDBBean">
-		select * from game_info where kind = ? and date_format(reg_date, '%y-%M-%d') = ?
+
+	<select id="selectGamesByDate" parameterType="hashmap"
+		resultType="kr.co.sist.football.test.model.dto.GameInfo">
+		SELECT
+		id,
+		status_code statusCode,
+		max_person_num maxPersonNum,
+		kind,
+		game_date gameDate,
+		duration,
+		description,
+		maxnum_team maxinumTeam
+		FROM
+		game_info
+		WHERE
+		kind = #{kind} AND
+		to_char(game_date, 'MM')= #{month}
+
+		<!-- and date_format(reg_date, '%y-%M-%d') = ? -->
 	</select>
 </mapper>
