@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mappers.GameRoomMapper">
+
+	<select id="test" parameterType="string"
+		resultType="kr.co.sist.football.test.model.dto.GameRoom">
+		select 
+		game_info.id, 
+		team_info.name, 
+		game_info.game_date, 
+		game_info.duration, 
+		game_location.Name locationname, 
+		game_location.location 
+		from game_info, team_info, game_location 
+		where game_info.id = 1 
+		and team_info.name is not null
+		and game_location.name is not null
+	</select>
+
+	<select id="gameroomteaminfo" parameterType="string"
+		resultType="kr.co.sist.football.test.model.dto.GameRoom">
+		select 
+		game_info.id, 
+		team_info.name, 
+		game_info.game_date, 
+		game_info.duration, 
+		game_location.Name locationname,
+		game_location.location 
+		from game_info, team_info, game_location 
+		where game_info.id = 1 
+		and team_info.name is not null
+		and game_location.name is not null
+	</select>
+
+
+
+
+
+</mapper>

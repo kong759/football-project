@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class OldConnectionTest {
-	private static String dburl = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
+	private static String dburl = "jdbc:oracle:thin:@127.0.0.1:1522:orcl";
 	private static String dbUser = "admin";
 	private static String dbpasswd = "1111";
 
