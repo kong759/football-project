@@ -1,13 +1,13 @@
-package kr.co.sist.football.test.model.service;
+package kr.co.sist.football.gameschedule.model.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.sist.football.test.model.dao.GameDao;
-import kr.co.sist.football.test.model.dto.GameInfo;
-import kr.co.sist.football.test.model.dto.GameInfoByMonth;
+import kr.co.sist.football.gameschedule.model.dao.GameDao;
+import kr.co.sist.football.gameschedule.model.dto.GameInfo;
+import kr.co.sist.football.gameschedule.model.dto.GameInfoByMonth;
 
 @Service
 public class GameInfoService {

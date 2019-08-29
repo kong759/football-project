@@ -1,4 +1,4 @@
-package kr.co.sist.football.test.model.dto;
+package kr.co.sist.football.gameschedule.model.dto;
 
 import java.util.List;
 
