@@ -1,4 +1,4 @@
-package kr.co.sist.football.TeamList.model.dao;
+package kr.co.sist.football.teaminfo.model.dao;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.sist.football.TeamList.model.dto.TeamListDTO;
+import kr.co.sist.football.teaminfo.model.dto.TeamListDTO;
 import mybatis.config.MybatisConnector;
 
 
@@ -23,41 +23,41 @@ public class TeamListDAO {
 		this.mybatisconnector = mybatisconnector;
 	}
 
-	//팀 가입할 떄 insert 넣는 메소드
-	public int insertTeamInfo()  {
+	//팀 가입할 떄 insert 넣는 메소드 ex)쿼리문을 처리하기 위하여 매개변수 지정
+	public int insertTeamInfo(TeamListDTO teamListDTO)  {
 		SqlSession sqlSession = mybatisconnector.sqlSession();
-		TeamListDTO teamListDTO = new TeamListDTO();
-
-		/*값 삽입을 위하여 임의로 삽입
-		 * teamListDTO.setId(4); teamListDTO.setLocation("a");
-		 * teamListDTO.setLogo_path("b"); teamListDTO.setMax_num(2);
-		 * teamListDTO.setName("c"); teamListDTO.setPresent_num(3);
-		 * teamListDTO.setStrength_code(4); teamListDTO.setUniform_color_code(5);
-		 * teamListDTO.setFormation("d");
-		 */
 		
 		try {
-			int insertTeam = sqlSession.insert(namespace+".insertTeamInfo",teamListDTO);
-			System.out.println(insertTeam);
-			return insertTeam; 
+			int insertTeamResult = sqlSession.insert(namespace+".insertTeamInfo",teamListDTO);
+			return insertTeamResult; 
 		} finally {
 			sqlSession.close();
 		}
 	}
+	//모든 팀 count를 뽑아오는 메소드
+		public List<TeamListDTO> getTeamCount()  {
+			SqlSession sqlSession = mybatisconnector.sqlSession();
+			
+			try {
+				List<TeamListDTO> getTeamCount = sqlSession.selectList(namespace+".getTeamCount");
+				return getTeamCount; 
+			} finally {
+				sqlSession.close();
+			}
+		}
 	//모든 팀 정보를 뽑아오는 메소드
-	public List<TeamListDTO> selectTeamList()  {
+	public List<TeamListDTO> selectAllTeamList()  {
 		SqlSession sqlSession = mybatisconnector.sqlSession();
 		
 		try {
-			List<TeamListDTO> insertTeam = sqlSession.selectList(namespace+".pushTeaminfo");
-			System.out.println(insertTeam);
-			return insertTeam; 
+			List<TeamListDTO> selectAllTeamList = sqlSession.selectList(namespace+".selectAllTeaminfo");
+			return selectAllTeamList; 
 		} finally {
 			sqlSession.close();
 		}
 	}
 	//특정 팀 정보를 뽑아오는 메소드
-	public List<TeamListDTO> clickTeam()  {
+	public List<TeamListDTO> selectOneTeam()  {
 		SqlSession sqlSession = mybatisconnector.sqlSession();
 		TeamListDTO teamListDTO = new TeamListDTO();
 		int num=3;
@@ -65,9 +65,8 @@ public class TeamListDAO {
 		teamListDTO.setId(num);
 
 		try {
-			List<TeamListDTO> clickTeam = sqlSession.selectList(namespace+".clickTeaminfo");
-			System.out.println(clickTeam);
-			return clickTeam; 
+			List<TeamListDTO> selectOneTeamList = sqlSession.selectList(namespace+".selectOneTeaminfo");
+			return selectOneTeamList; 
 		} finally {
 			sqlSession.close();
 		}
