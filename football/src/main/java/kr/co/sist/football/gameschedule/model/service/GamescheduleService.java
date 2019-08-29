@@ -10,12 +10,12 @@ import kr.co.sist.football.gameschedule.model.dto.GameInfo;
 import kr.co.sist.football.gameschedule.model.dto.GameInfoByMonth;
 
 @Service
-public class GameInfoService {
+public class GamescheduleService {
 
 	GameDao gameDao;
 
 	@Autowired
-	public GameInfoService(GameDao gameDao) {
+	public GamescheduleService(GameDao gameDao) {
 		this.gameDao = gameDao;
 	}
 
