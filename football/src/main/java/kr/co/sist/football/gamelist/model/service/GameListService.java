@@ -1,4 +1,4 @@
-package kr.co.sist.football.test.model.service;
+package kr.co.sist.football.gamelist.model.service;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
-import kr.co.sist.football.test.model.dao.GameListDao;
+import kr.co.sist.football.gamelist.model.dao.GameListDao;
 import mybatis.config.MybatisConnector;
 
 
@@ -34,17 +34,6 @@ public class GameListService {
 
 	
 	
-	public List gamelistTeaminfo(String name) throws Exception {
-		SqlSession sqlSession = mybatisConnector.sqlSession();
-		System.out.println("gamelistTeaminfo===old");
-		HashMap map = new HashMap();
-		map.put("name", name);
-		try {
-			return ;
-		} finally {
-			sqlSession.close();
-		}
-	}
 
 //	public int updateArticle(GameListDao article, String boardid) throws Exception {
 //		SqlSession sqlSession = mybatisConnector.sqlSession();

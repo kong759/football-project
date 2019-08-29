@@ -1,3 +1,4 @@
+package kr.co.sist.football.gamelist.model.service;
 //package kr.co.sist.football.test.model.service;
 //
 //import java.io.IOException;

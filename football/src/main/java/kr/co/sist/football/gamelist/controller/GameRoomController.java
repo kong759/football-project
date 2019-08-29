@@ -1,10 +1,9 @@
-package kr.co.sist.football.test.controller;
+package kr.co.sist.football.gamelist.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.co.sist.football.test.model.dto.GameList;
-//import service.BoardDBBeanMybatis;
+import kr.co.sist.football.gamelist.model.dto.GameList;
 
 @Controller
 public class GameRoomController {

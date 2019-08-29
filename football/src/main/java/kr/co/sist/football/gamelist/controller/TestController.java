@@ -1,4 +1,4 @@
-package kr.co.sist.football.test.controller;
+package kr.co.sist.football.gamelist.controller;
 
 import org.springframework.stereotype.Controller;
 

@@ -1,4 +1,4 @@
-package kr.co.sist.football.test.model.dto;
+package kr.co.sist.football.gamelist.model.dto;
 
 import org.apache.ibatis.type.Alias;
 
