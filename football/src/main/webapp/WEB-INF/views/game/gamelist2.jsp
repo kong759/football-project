@@ -1,5 +1,9 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,9 +37,9 @@
 				<option value="tot">tot</option>
 				<option value="MU">MU</option>
 			</select>
-			<button type="button" class="btn">Calender</button> 
+			<button type="button" class="btn">Calender</button>
 			<!--Calender버튼 눌렀을 때 승주형의 달력페이지로 가는 기능 구현하기 -->
-			
+
 		</div>
 
 
@@ -53,12 +57,12 @@
 		<div id="div_menu" class="vertical-menu">
 
 			<h1>TeamInfo</h1>
-			<div id="div_con2">팀이름:  ${param.name },${name }</div>
+			<div id="div_con2">팀이름 : ${name}</div>
 			<div id="div_con2">로고</div>
 			<div id="div_con2">정원</div>
-			<div id="div_con2">현원:${TeamInfo.name }</div>
-			<div id="div_con2">유니폼 색깔${getTeamInfo.id }</div>
-			<div id="div_con2">전력</div>
+			<div id="div_con2">현원</div>
+			<div id="div_con2">유니폼 색깔</div>
+			<div id="div_con2">전력 : ${formation }</div>
 			<div id="div_con2">활동지역</div>
 			<div id="div_con2">포메이션</div>
 		</div>
@@ -86,7 +90,7 @@
 				<h1>Location</h1>
 				<div id="div_con6">구장사진</div>
 				<div id="div_con2">구장정보</div>
-				<div id="div_con2">오시는 길</div>
+				<div id="div_con2">위치 : ${location}</div>
 				<div id="div_con2">test3</div>
 				<div id="div_con2">test4</div>
 				<img src="/images/ground.jpg" alt="">
