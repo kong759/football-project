@@ -1,11 +1,11 @@
-package kr.co.sist.football.teaminfo;
+package kr.co.sist.football.teamlist;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-import kr.co.sist.football.teaminfo.model.dto.TeamListDTO;
+import kr.co.sist.football.teamlist.model.dto.TeamListDTO;
 import mybatis.config.MybatisConnector;
 
 public class MybatisTest {

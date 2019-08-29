@@ -1,4 +1,4 @@
-package kr.co.sist.football.teaminfo.model.dao;
+package kr.co.sist.football.teamlist.model.dao;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.sist.football.teaminfo.model.dto.TeamListDTO;
+import kr.co.sist.football.teamlist.model.dto.TeamListDTO;
 import mybatis.config.MybatisConnector;
 
 

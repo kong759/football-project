@@ -1,4 +1,4 @@
-package kr.co.sist.football.teaminfo.model.dto;
+package kr.co.sist.football.teamlist.model.dto;
 
 public class TeamListDTO {
 	private int id;
