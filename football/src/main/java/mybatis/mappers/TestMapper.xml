@@ -4,7 +4,7 @@
 <mapper namespace="mybatis.mappers.TestMapper">
 
 	<select id="test" parameterType="string"
-		resultType="kr.co.sist.football.test.model.dto.Test">
+		resultType="kr.co.sist.football.sample.model.dto.Sample">
 		select * from test
 	</select>
 </mapper>

@@ -1,4 +1,4 @@
-package kr.co.sist.football.test.model.service;
+package test.model.service;
 
 import org.springframework.stereotype.Service;
 

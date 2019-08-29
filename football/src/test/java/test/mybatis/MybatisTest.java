@@ -1,4 +1,4 @@
-package kr.co.sist.football.test;
+package test.mybatis;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.context.support.GenericXmlApplicationContext;

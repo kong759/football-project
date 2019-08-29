@@ -1,15 +1,12 @@
-package mybatis.dto;
+package kr.co.sist.football.sample.model.dto;
 
-import org.apache.ibatis.type.Alias;
-
-@Alias("Test")
-public class Test {
+public class Sample {
 	private String test;
 
-	public Test() {
+	public Sample() {
 	}
 
-	public Test(String test) {
+	public Sample(String test) {
 		this.test = test;
 	}
 

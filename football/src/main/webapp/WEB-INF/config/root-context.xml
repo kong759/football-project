@@ -11,10 +11,10 @@
 	<import resource="db-config.xml" />
 
 	<context:component-scan
-		base-package="com.dae.football" use-default-filters="false">
+		base-package="kr.co.sist.football" use-default-filters="false">
 		<context:include-filter type="regex"
-			expression="com.dae.football.*.service.*" />
+			expression="kr.co.sist.football.*.service.*" />
 		<context:include-filter type="regex"
-			expression="com.dae.football.*.dao.*" />
+			expression="kr.co.sist.football.*.dao.*" />
 	</context:component-scan>
 </beans>
