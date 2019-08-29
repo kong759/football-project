@@ -46,9 +46,16 @@ public class GameDao {
 
 		try {
 			return sqlSession.selectList("mybatis.mappers.GameMapper.selectGamesByDate", map);
-		} finally {
+		}catch(RuntimeException e) {
+			System.err.println("========================");
+			System.err.println("=====날짜를 입력해주세요=====");
+			System.err.println("========================");
+			return null;
+		}finally {
+		
 			sqlSession.close();
 		}
+		
 	}
 
 }
