@@ -11,12 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
-import kr.co.sist.football.gamelist.model.dao.GameListDao;
+import kr.co.sist.football.gamelist.model.dao.GamelistDao;
 import mybatis.config.MybatisConnector;
 
 
 @Service
-public class GameListService {
+public class GamelistService {
 
 	private final String namespace = "mybatis.mappers.GameListMapper";
 	@Autowired
