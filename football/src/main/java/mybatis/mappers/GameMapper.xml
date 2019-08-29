@@ -9,7 +9,7 @@
 
 
 	<select id="test" parameterType="string"
-		resultType="kr.co.sist.football.test.model.dto.GameInfo">
+		resultType="kr.co.sist.football.gameschedule.model.dto.GameInfo">
 		select * from test
 	</select>
 
@@ -20,7 +20,7 @@
 	</select>
 
 	<select id="selectGamesByDate" parameterType="hashmap"
-		resultType="kr.co.sist.football.test.model.dto.GameInfo">
+		resultType="kr.co.sist.football.gameschedule.model.dto.GameInfo">
 		SELECT
 		id,
 		status_code statusCode,
