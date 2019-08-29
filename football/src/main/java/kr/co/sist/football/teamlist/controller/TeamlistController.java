@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/teamlist")
 public class TeamlistController {
 	@GetMapping
-	public String gamelist() {
+	public String teamlist() {
 
 		return "team/teamlist";
 	}
