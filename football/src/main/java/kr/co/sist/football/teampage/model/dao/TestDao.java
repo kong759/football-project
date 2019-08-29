@@ -1,4 +1,4 @@
-package kr.co.sist.football.test.model.dao;
+package kr.co.sist.football.teampage.model.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;

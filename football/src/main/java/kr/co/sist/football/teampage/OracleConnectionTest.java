@@ -1,4 +1,4 @@
-package kr.co.sist.football.test;
+package kr.co.sist.football.teampage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
