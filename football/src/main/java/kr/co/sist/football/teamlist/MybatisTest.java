@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-import kr.co.sist.football.teamlist.model.dto.TeamListDTO;
+import kr.co.sist.football.teamlist.model.dto.TeamInfo;
 import mybatis.config.MybatisConnector;
 
 public class MybatisTest {
@@ -24,7 +24,7 @@ public class MybatisTest {
 	
 	public int insertTeamInfo()  {
 		SqlSession sqlSession = mybatisconnector.sqlSession();
-		TeamListDTO teamListDTO = new TeamListDTO();
+		TeamInfo teamListDTO = new TeamInfo();
 		
 		  teamListDTO.setId(11); teamListDTO.setLocation("ac");
 		  teamListDTO.setLogoPath("bc"); teamListDTO.setMaxNum(21);
@@ -40,11 +40,11 @@ public class MybatisTest {
 			sqlSession.close();
 		}
 	}
-	public List<TeamListDTO> selectAllTeamList()  {
+	public List<TeamInfo> selectAllTeamList()  {
 		SqlSession sqlSession = mybatisconnector.sqlSession();
 
 		try {
-			List<TeamListDTO> selectAllTeamList  = sqlSession.selectList(namespace+".selectAllTeaminfo");
+			List<TeamInfo> selectAllTeamList  = sqlSession.selectList(namespace+".selectAllTeaminfo");
 			System.out.println(selectAllTeamList);
 			return selectAllTeamList ; 
 		} finally {
@@ -52,12 +52,12 @@ public class MybatisTest {
 		}
 	}
 	//특정 팀 정보를 뽑아오는 메소드
-		public List<TeamListDTO> selectOneTeamList(int id)  {
+		public List<TeamInfo> selectOneTeamList(int id)  {
 			SqlSession sqlSession = mybatisconnector.sqlSession();
-			TeamListDTO teamListDTO = new TeamListDTO();
+			TeamInfo teamListDTO = new TeamInfo();
 			
 			try {
-				List<TeamListDTO> selectOneTeamList  = sqlSession.selectList(namespace+".selectOneTeaminfo", id);
+				List<TeamInfo> selectOneTeamList  = sqlSession.selectList(namespace+".selectOneTeaminfo", id);
 //					
 				System.out.println(selectOneTeamList);
 				return selectOneTeamList; 
@@ -66,11 +66,11 @@ public class MybatisTest {
 			}
 		}
 		//모든 팀 count를 뽑아오는 메소드
-				public List<TeamListDTO> getTeamCount()  {
+				public List<TeamInfo> getTeamCount()  {
 					SqlSession sqlSession = mybatisconnector.sqlSession();
 					
 					try {
-						List<TeamListDTO> getTeamCount = sqlSession.selectList(namespace+".getTeamCount");
+						List<TeamInfo> getTeamCount = sqlSession.selectList(namespace+".getTeamCount");
 						System.out.println(getTeamCount);
 						return getTeamCount; 
 					} finally {
