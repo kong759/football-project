@@ -1,4 +1,4 @@
-package kr.co.sist.football.gamelist.model.dao;
+package kr.co.sist.football.sample.model.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,16 +7,16 @@ import org.springframework.stereotype.Repository;
 import mybatis.config.MybatisConnector;
 
 @Repository
-public class TestDao {
+public class SampleDao {
 	public MybatisConnector mybatisconnector;
 	
 	private final String namespace = "mybatis.mappers.TestMapper";
 
-	public TestDao() {
+	public SampleDao() {
 	}
 
 	@Autowired
-	public TestDao(MybatisConnector mybatisconnector) {
+	public SampleDao(MybatisConnector mybatisconnector) {
 		this.mybatisconnector = mybatisconnector;
 	}
 	
