@@ -15,11 +15,11 @@
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/team/css/test.css" />
+	href="${pageContext.request.contextPath}/resources/css/test.css" />
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/team/css/TeamPage.css" />
+	href="${pageContext.request.contextPath}/resources/css/TeamPage.css" />
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/team/css/modal.css" />
+	href="${pageContext.request.contextPath}/resources/css/modal.css" />
 
 </head>
 <body>
@@ -78,13 +78,14 @@
 			</div>
 		</div>
 
-		<div style="display: flex;">
+		<div style="display: flex; width: 100%;">
 			<div class="leftcolumn">
-				<h2>팀 개수:${teamlist.teamCount}</h2>
+				<div style="display:block">
+					<h2>팀 개수:${teamlist.teamCount}</h2>
+				</div>
 				<c:forEach var="teamInfo" items="${teamlist.teamInfos}">
-					${teamInfo.id }
 					<div class="TeamInformation">
-						<h2>${teamInfo.name}TeamName</h2>
+						<h2>${teamInfo.name}</h2>
 						<h6>Team reader xxx</h6>
 						<h6>DEC 9, 2019</h6>
 						<div class="Information" style="height: 200px;">TeamLogo</div>
@@ -104,8 +105,10 @@
 				</div>
 				<!--TeamInformation body  -->
 			</div>
+		</div>
+	</div>
 </body>
-<script src="team/js/Templating.js"></script>
+<script src="/resources/js/Templating.js"></script>
 <script>
 	window.onload = function() {
 		initPage();
