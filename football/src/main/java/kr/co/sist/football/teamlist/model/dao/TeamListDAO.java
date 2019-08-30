@@ -14,7 +14,6 @@ public class TeamListDAO {
 	public MybatisConnector mybatisconnector;
 
 	private final String namespace = "mybatis.mappers.TeamListMapper";
-	private final String common = "mybatis.mappers.CommonMapper";
 
 	public TeamListDAO() {
 	}
@@ -54,18 +53,6 @@ public class TeamListDAO {
 		try {
 			List<TeamInfo> teamList = sqlSession.selectList(namespace + ".selectTeaminfoList");
 			return teamList;
-		} finally {
-			sqlSession.close();
-		}
-	}
-
-	// 특정 팀 정보를 뽑아오는 메소드
-	public TeamInfo getTeamInfo(int teamId) {
-		SqlSession sqlSession = mybatisconnector.sqlSession();
-
-		try {
-			TeamInfo teamInfo = sqlSession.selectOne(common + ".selectTeamInfo", teamId);
-			return teamInfo;
 		} finally {
 			sqlSession.close();
 		}
