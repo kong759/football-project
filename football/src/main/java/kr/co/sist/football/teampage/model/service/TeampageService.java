@@ -3,13 +3,11 @@ package kr.co.sist.football.teampage.model.service;
 import java.util.HashMap;
 import java.util.Map;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.sist.football.teampage.model.dao.TeampageDAO;
 import kr.co.sist.football.teampage.model.dto.Teampage;
-
 
 @Service
 public class TeampageService {
@@ -23,10 +21,8 @@ public class TeampageService {
 
 	public Teampage getTeampage(int teamId) {
 		Teampage teampage = new Teampage();
-		
+
 		teampage.setTeamInfo(teampageDAO.getTeamInfo(teamId));
-		
-		
 
 		return teampage;
 	}
