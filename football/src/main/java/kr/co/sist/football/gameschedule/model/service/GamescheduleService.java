@@ -7,9 +7,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.co.sist.football.common.model.dto.GameInfo;
 import kr.co.sist.football.gameschedule.model.dao.GameDao;
 import kr.co.sist.football.gameschedule.model.dto.GameCalendar;
-import kr.co.sist.football.gameschedule.model.dto.GameInfo;
 import kr.co.sist.football.gameschedule.model.dto.GameInfoByMonth;
 
 @Service

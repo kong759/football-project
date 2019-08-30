@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.sist.football.gameschedule.model.dto.GameInfo;
+import kr.co.sist.football.common.model.dto.GameInfo;
 import mybatis.config.MybatisConnector;
 
 @Repository
