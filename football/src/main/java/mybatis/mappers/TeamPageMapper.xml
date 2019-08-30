@@ -6,24 +6,4 @@
 		update member set
 		team_id = #{teamId} where member.id = #{memberId}
 	</update>
-
-	<select id="selectTeamInfo" parameterType="int"
-		resultType="kr.co.sist.football.teampage.model.dto.TeamInfo">
-		SELECT
-		id,
-		name,
-		logo_path logoPath,
-		present_num presentNum,
-		max_num maxNum,
-		uniform_color_code uniformColorCode,
-		strength_code
-		strengthCode,
-		location,
-		formation
-		FROM
-		team_info
-		WHERE
-		id=#{teamId}
-	</select>
-
 </mapper>

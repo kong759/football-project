@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.sist.football.teamlist.model.dto.TeamInfo;
+import kr.co.sist.football.common.model.dto.TeamInfo;
 import mybatis.config.MybatisConnector;
 
 @Repository
@@ -14,6 +14,7 @@ public class TeamListDAO {
 	public MybatisConnector mybatisconnector;
 
 	private final String namespace = "mybatis.mappers.TeamListMapper";
+	private final String common = "mybatis.mappers.CommonMapper";
 
 	public TeamListDAO() {
 	}
@@ -63,7 +64,7 @@ public class TeamListDAO {
 		SqlSession sqlSession = mybatisconnector.sqlSession();
 
 		try {
-			TeamInfo teamInfo = sqlSession.selectOne(namespace + ".selectTeamInfo", teamId);
+			TeamInfo teamInfo = sqlSession.selectOne(common + ".selectTeamInfo", teamId);
 			return teamInfo;
 		} finally {
 			sqlSession.close();

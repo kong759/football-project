@@ -10,7 +10,7 @@
 	</select>
 
 	<select id="selectGamesByDate" parameterType="hashmap"
-		resultType="kr.co.sist.football.gameschedule.model.dto.GameInfo">
+		resultType="kr.co.sist.football.common.model.dto.GameInfo">
 		SELECT
 		id,
 		status_code statusCode,
