@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.sist.football.gamelist.model.dto.GameInfo;
+import kr.co.sist.football.common.model.dto.GameInfo;
 import kr.co.sist.football.gamelist.model.dto.GameInfoParam;
 import kr.co.sist.football.gamelist.model.dto.GameLocation;
 import kr.co.sist.football.gamelist.model.dto.TeamInfo;
@@ -33,7 +33,6 @@ public class GamelistDao {
 		}
 	}
 
-	
 	public List<GameInfo> getGameInfoList(GameInfoParam gameInfoParam) {
 		SqlSession sqlSession = mybatisconnector.sqlSession();
 		try {
@@ -42,8 +41,6 @@ public class GamelistDao {
 			sqlSession.close();
 		}
 	}
-
-
 
 	public GameLocation getGameLocationByGameId(int gameInfoId) {
 		SqlSession sqlSession = mybatisconnector.sqlSession();

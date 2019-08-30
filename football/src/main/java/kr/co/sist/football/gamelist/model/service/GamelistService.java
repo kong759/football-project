@@ -21,7 +21,6 @@ public class GamelistService {
 
 		gamelist.setGameInfos(gamelistDao.getGameInfoList(gameInfoParam));
 
-		// teamId가 -1일 경우 입력되지 않은 것으로 간주 프런트 만들 때 참고
 		if (teamId == -1) {
 			return gamelist;
 		} else {
