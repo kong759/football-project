@@ -78,11 +78,11 @@
 			</div>
 		</div>
 
+		<div style="display: block; width: 100%">
+			<h2>팀 개수:${teamlist.teamCount}</h2>
+		</div>
 		<div style="display: flex; width: 100%;">
 			<div class="leftcolumn">
-				<div style="display:block">
-					<h2>팀 개수:${teamlist.teamCount}</h2>
-				</div>
 				<c:forEach var="teamInfo" items="${teamlist.teamInfos}">
 					<div class="TeamInformation">
 						<h2>${teamInfo.name}</h2>
