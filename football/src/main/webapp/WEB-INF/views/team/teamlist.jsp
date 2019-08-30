@@ -15,15 +15,13 @@
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/test.css" />
+	href="${pageContext.request.contextPath}/resources/css/default.css" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/TeamPage.css" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/modal.css" />
-
 </head>
 <body>
-
 	<div class="container_body">
 		<!--TeamInformation body  -->
 		<div class="container-fluid bg-light ">
