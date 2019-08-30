@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,9 +34,9 @@
 				<option value="tot">tot</option>
 				<option value="MU">MU</option>
 			</select>
-			<button type="button" class="btn">Calender</button> 
+			<button type="button" class="btn">Calender</button>
 			<!--Calender버튼 눌렀을 때 승주형의 달력페이지로 가는 기능 구현하기 -->
-			
+
 		</div>
 
 
@@ -53,31 +54,27 @@
 		<div id="div_menu" class="vertical-menu">
 
 			<h1>TeamInfo</h1>
-			<div id="div_con2">팀이름:  ${param.name },${name }</div>
-			<div id="div_con2">로고</div>
-			<div id="div_con2">정원</div>
-			<div id="div_con2">현원:${TeamInfo.name }</div>
-			<div id="div_con2">유니폼 색깔${getTeamInfo.id }</div>
-			<div id="div_con2">전력</div>
-			<div id="div_con2">활동지역</div>
-			<div id="div_con2">포메이션</div>
+			<div id="div_con2">팀이름</br>${gamelist.teamInfo.name }</div>
+			<div id="div_con2">로고</br>${gamelist.teamInfo.logoPath }</div>
+			<div id="div_con2">정원</br>${gamelist.teamInfo.maxNum }</div>
+			<div id="div_con2">현원</br>${gamelist.teamInfo.presentNum  }</div>
+			<div id="div_con2">유니폼 색깔</br>${gamelist.teamInfo.uniformColorCode}</div>
+			<div id="div_con2">전력</br>${gamelist.teamInfo.strengthCode }</div>
+			<div id="div_con2">활동지역</br>${gamelist.teamInfo.location }</div>
+			<div id="div_con2">포메이션</br>${gamelist.teamInfo.formation }</div>
 		</div>
 
 
 		<div id="div_menu2">
 			<h1>Recent Meetings</h1>
-			<div id="div_con2">test1</div>
-			<div id="div_con2">test2</div>
-			<div id="div_con2">test3</div>
-			<div id="div_con2">test4</div>
-			<div id="div_con2">test5</div>
-			<div id="div_con2">test6</div>
-			<div id="div_con2">test1</div>
-			<div id="div_con2">test2</div>
-			<div id="div_con2">test3</div>
-			<div id="div_con2">test4</div>
+			<c:forEach items="${gamelist.gameInfos }" var="gameInfo">
+				<div id="div_con2">게임번호 #${gameInfo.id}<br/>
+				
+				${gameInfo.description}
+				
+				</div>
 
-
+			</c:forEach>
 		</div>
 
 		<div id="div_menu3" class="vertical-menu">

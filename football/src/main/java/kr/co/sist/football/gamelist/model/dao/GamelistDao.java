@@ -33,6 +33,7 @@ public class GamelistDao {
 		}
 	}
 
+	
 	public List<GameInfo> getGameInfoList(GameInfoParam gameInfoParam) {
 		SqlSession sqlSession = mybatisconnector.sqlSession();
 		try {
@@ -41,6 +42,8 @@ public class GamelistDao {
 			sqlSession.close();
 		}
 	}
+
+
 
 	public GameLocation getGameLocationByGameId(int gameInfoId) {
 		SqlSession sqlSession = mybatisconnector.sqlSession();

@@ -30,19 +30,24 @@
 		max_person_num
 		maxPersonNum,
 		kind,
-		game_date gameDate,
 		duration,
 		description,
 		maxnum_team
-		maxnumTeam
+		maxnumTeam,
+				TO_CHAR(GAME_DATE, 'MM:DD') m,
+        TO_CHAR(game_date,'HH24:MI') n
 		FROM
 		game_info
+		
 		WHERE
 		ROWNUM <![CDATA[<=]]>
 		#{endNum}
 		AND
 		#{startNum} <![CDATA[<=]]>
 		ROWNUM
+		ORDER BY 
+		id
+		DESC
 	</select>
 	<select id="selectGameLocation" parameterType="int"
 		resultType="kr.co.sist.football.gamelist.model.dto.GameLocation">

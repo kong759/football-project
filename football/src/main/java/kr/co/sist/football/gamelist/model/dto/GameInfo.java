@@ -11,6 +11,7 @@ public class GameInfo {
 	private int duration;
 	private String description;
 	private int maxnumTeam;
+	
 
 	public int getId() {
 		return id;
@@ -76,11 +77,13 @@ public class GameInfo {
 		this.maxnumTeam = maxnumTeam;
 	}
 
+	
+	
 	@Override
 	public String toString() {
 		return "GameInfo [id=" + id + ", statusCode=" + statusCode + ", maxPersonNum=" + maxPersonNum + ", kind=" + kind
 				+ ", gameDate=" + gameDate + ", duration=" + duration + ", description=" + description + ", maxnumTeam="
-				+ maxnumTeam + "]";
+				+ maxnumTeam +  "]";
 	}
 
 }
