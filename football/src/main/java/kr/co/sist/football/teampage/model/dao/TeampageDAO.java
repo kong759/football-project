@@ -1,10 +1,12 @@
 package kr.co.sist.football.teampage.model.dao;
 
+
 import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 
 import kr.co.sist.football.teampage.MybatisTest;
 import kr.co.sist.football.teampage.model.dto.TeampageDTO;
@@ -15,7 +17,8 @@ public class TeampageDAO {
 
 	public MybatisConnector mybatisconnector;
 
-	private final String namespace = "mybatis.mappers.TestMapper";
+	private final String namespace = "mybatis.mappers.TeamPageMapper";
+
 
 	public TeampageDAO() {
 
@@ -26,39 +29,25 @@ public class TeampageDAO {
 		this.mybatisconnector = mybatisconnector;
 	}
 
-	/*
-	 * public void insertTeampageArticle() { SqlSession sqlSession =
-	 * mybatisconnector.sqlSession(); TeampageDTO teampageDTO = new TeampageDTO();
-	 * 
-	 * teampageDTO.setId(9); teampageDTO.setTeam_id(9);
-	 * teampageDTO.setNick_name("이종현"); teampageDTO.setManner_score(9);
-	 * teampageDTO.setPic_path("이종현"); teampageDTO.setFoot_code(9);
-	 * teampageDTO.setName("이종현"); teampageDTO.setEmail("이종현");
-	 * teampageDTO.setPassword("이종현"); teampageDTO.setTel(9);
-	 * teampageDTO.setPosition("이종현");
-	 * 
-	 * try { int result = sqlSession.insert(namespace+ ".insertTeampageArticle",
-	 * teampageDTO); System.out.println(result); } finally { sqlSession.close(); } }
-	 */
-
-	public void updateTeamId(int id) {
+	public int updateTeamId(Map<String, Integer> updateTeamIdMap) {
 		SqlSession sqlSession = mybatisconnector.sqlSession();
 
-		TeampageDTO teampageDTO = new TeampageDTO();
-
-		teampageDTO.setTeamId(5);
-
 		try {
-			int result = sqlSession.update(namespace + ".updateTeamId", id);
-			System.out.println(result);
+			return sqlSession.update(namespace + ".updateTeamId", updateTeamIdMap);
+
 		} finally {
 			sqlSession.close();
 		}
 	}
 
-	public static void main(String[] args) throws Exception {
-		MybatisTest test = new MybatisTest();
+	public TeamInfo getTeamInfo(int teamId) {
+		SqlSession sqlSession = mybatisconnector.sqlSession();
+		TeamInfo teamInfo = sqlSession.selectOne(namespace + ".selectTeamInfo", teamId);
+		try {
+			return teamInfo;
+		} finally {
+			sqlSession.close();
+		}
 
-		test.updateTeamId(0, 1);
 	}
 }
