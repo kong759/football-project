@@ -273,7 +273,7 @@ img.player {
 			</div>
 	</div>
 </body>
-<script src="Templating.js"></script>
+<script src="/resources/js/Templating.js"></script>
 <script>
 	window.onload = function() {
 		initPage();
