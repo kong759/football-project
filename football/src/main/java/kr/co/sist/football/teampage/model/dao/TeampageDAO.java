@@ -1,12 +1,15 @@
 package kr.co.sist.football.teampage.model.dao;
 
-import java.util.Map;
+
+import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.sist.football.teampage.model.dto.TeamInfo;
+
+import kr.co.sist.football.teampage.MybatisTest;
+import kr.co.sist.football.teampage.model.dto.TeampageDTO;
 import mybatis.config.MybatisConnector;
 
 @Repository
@@ -15,6 +18,7 @@ public class TeampageDAO {
 	public MybatisConnector mybatisconnector;
 
 	private final String namespace = "mybatis.mappers.TeamPageMapper";
+
 
 	public TeampageDAO() {
 
@@ -30,6 +34,7 @@ public class TeampageDAO {
 
 		try {
 			return sqlSession.update(namespace + ".updateTeamId", updateTeamIdMap);
+
 		} finally {
 			sqlSession.close();
 		}
@@ -43,5 +48,6 @@ public class TeampageDAO {
 		} finally {
 			sqlSession.close();
 		}
+
 	}
 }

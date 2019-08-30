@@ -3,6 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mybatis.mappers.TeamPageMapper">
 
+
 	<!-- <select id="insertTeampageArticle" parameterType="string" resultType="kr.co.sist.football.test.model.dto.TeampageDTO"> 
 		select * from TeampageDTO </select> -->
 
@@ -33,6 +34,7 @@
 		team_info
 		WHERE
 		id=#{teamId}
+
 	</select>
 
 </mapper>
