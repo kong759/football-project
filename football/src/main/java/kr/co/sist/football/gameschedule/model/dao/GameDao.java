@@ -37,25 +37,25 @@ public class GameDao {
 		}
 	}
 
-	public List<GameInfo> getGamesByDate(String month, int kind) {
+	public List<GameInfo> getGamesByDate(int month, int kind) {
 		SqlSession sqlSession = mybatisConnector.sqlSession();
-		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, Integer> map = new HashMap<String, Integer>();
 
 		map.put("kind", kind);
 		map.put("month", month);
 
 		try {
 			return sqlSession.selectList("mybatis.mappers.GameMapper.selectGamesByDate", map);
-		}catch(RuntimeException e) {
+		} catch (RuntimeException e) {
 			System.err.println("========================");
 			System.err.println("=====날짜를 입력해주세요=====");
 			System.err.println("========================");
 			return null;
-		}finally {
-		
+		} finally {
+
 			sqlSession.close();
 		}
-		
+
 	}
 
 }

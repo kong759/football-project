@@ -22,11 +22,13 @@ public class GamescheduleController {
 
 	@GetMapping
 	public String gameschedule(@RequestParam(value = "kind", required = false, defaultValue = "0") int kind,
-			String month, Model model) {
+			@RequestParam(value = "year", required = false, defaultValue = "0") int year,
+			@RequestParam(value = "month", required = false, defaultValue = "0") int month, Model model) {
 		// kind가 0이면 인원 무관으로?
-		model.addAttribute("gameInfoByMonth", gamescheduleService.getGameInfo(kind, month));
+		model.addAttribute("gameInfoByMonth", gamescheduleService.getGameInfo(month, kind));
+		model.addAttribute("gameCalendar", gamescheduleService.getCalendar(year, month));
 
-		return "game/gameschedule";
+		return "game/calendar";
 	}
 
 }
