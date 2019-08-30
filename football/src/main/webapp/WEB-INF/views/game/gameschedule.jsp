@@ -1,10 +1,6 @@
-
 <%@page import="java.text.SimpleDateFormat"%>
-
 <%@page import="java.util.Calendar"%>
-
 <%@ page contentType="text/html; charset=utf-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
    Calendar cal = Calendar.getInstance();
@@ -34,6 +30,7 @@
 <html lang="ko">
 
 <HEAD>
+
 <style>
 .modal {
    display: none;
@@ -72,12 +69,6 @@
 <TITLE>캘린더</TITLE>
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-
-
-
-
-
-
 
 <style TYPE="text/css">
 body {
@@ -149,6 +140,7 @@ A:hover {
 </HEAD>
 
 <BODY>
+
    <!-- <form name="calendarFrm" id="calendarFrm" action="" method="get"> -->
    <DIV id="content" style="width: 712px;">
       <table width="100%" border="0" cellspacing="1" cellpadding="1">
@@ -297,7 +289,6 @@ A:hover {
          </h3>
       </div>
    </div>
-
 </BODY>
 <script type="text/javaScript" language="javascript"> 
       
@@ -319,7 +310,5 @@ A:hover {
              modal.style.display = "none";
           }
        }
-      
-
-       </script>
+</script>
 </HTML>
