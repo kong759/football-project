@@ -1,23 +1,23 @@
-package kr.co.sist.football.gameschedule.model.dto;
+package kr.co.sist.football.common.model.dto;
 
 import java.util.Date;
 
 public class GameInfo {
-
-	private String id;
+	private int id;
 	private int statusCode;
 	private int maxPersonNum;
 	private int kind;
 	private Date gameDate;
 	private int duration;
 	private String description;
-	private int maxinumTeam;
+	private int maxnumTeam;
+	
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -69,21 +69,21 @@ public class GameInfo {
 		this.description = description;
 	}
 
-	public int getMaxinumTeam() {
-		return maxinumTeam;
+	public int getMaxnumTeam() {
+		return maxnumTeam;
 	}
 
-	public void setMaxinumTeam(int maxinumTeam) {
-		this.maxinumTeam = maxinumTeam;
+	public void setMaxnumTeam(int maxnumTeam) {
+		this.maxnumTeam = maxnumTeam;
 	}
 
+	
+	
 	@Override
 	public String toString() {
 		return "GameInfo [id=" + id + ", statusCode=" + statusCode + ", maxPersonNum=" + maxPersonNum + ", kind=" + kind
-				+ ", gameDate=" + gameDate + ", duration=" + duration + ", description=" + description
-				+ ", maxinumTeam=" + maxinumTeam + "]";
+				+ ", gameDate=" + gameDate + ", duration=" + duration + ", description=" + description + ", maxnumTeam="
+				+ maxnumTeam +  "]";
 	}
 
 }
-//game-info
-//id, status_code, max_person_num, kind, game_dat ,duration, description, maximum_team
