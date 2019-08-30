@@ -1,15 +1,13 @@
 package kr.co.sist.football.teampage.model.service;
 
-import java.awt.List;
 import java.util.HashMap;
+import java.util.Map;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.sist.football.teampage.model.dao.TeampageDAO;
-import kr.co.sist.football.teampage.model.dto.TeampageDTO;
-import mybatis.config.MybatisConnector;
+import kr.co.sist.football.teampage.model.dto.Teampage;
 
 @Service
 public class TeampageService {
@@ -17,18 +15,29 @@ public class TeampageService {
 	TeampageDAO teampageDAO;
 
 	@Autowired
-	public void teampageService(TeampageDAO teampageDAO) {
+	public TeampageService(TeampageDAO teampageDAO) {
 		this.teampageDAO = teampageDAO;
 	}
 
-	public int updateTeamId(int memberId, int teamId) {
-		int statusCode;
+	public Teampage getTeampage(int teamId) {
+		Teampage teampage = new Teampage();
+		
+		teampage.setTeamInfo(teampageDAO.getTeamInfo(teamId));
+		
+		
 
-		if (selectCountTeamMember(teamId) > 100) {
-			System.out.print("정원 초과했습니다");
-			return statusCode;
-		}
+		return teampage;
+	}
 
-		updateTeamId(memberId, teamId);
+	public int setTeamId(int memberId, int teamId) {
+		int statusCode = -1;
+
+		Map<String, Integer> updateTeamIdMap = new HashMap<String, Integer>();
+		updateTeamIdMap.put("teamId", teamId);
+		updateTeamIdMap.put("memberId", memberId);
+
+		statusCode = teampageDAO.updateTeamId(updateTeamIdMap);
+
+		return statusCode;
 	}
 }

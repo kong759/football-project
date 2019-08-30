@@ -4,20 +4,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
+
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import kr.co.sist.football.teampage.model.dto.TeampageDTO;
 import mybatis.config.MybatisConnector;
 
+
 public class MybatisTest {
 
 	GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("root-context.xml");
-	private final String namespace = "mybatis.mappers.TestMapper";
+	private final String namespace = "mybatis.mappers.TeamPageMapper";
 	MybatisConnector mybatisconnector = ctx.getBean(MybatisConnector.class);
 
 	public MybatisTest() {
 	}
-
+	
 	public MybatisTest(MybatisConnector mybatisconnector) {
 		this.mybatisconnector = mybatisconnector;
 	}
@@ -69,6 +71,6 @@ public class MybatisTest {
 	public static void main(String[] args) throws Exception {
 		MybatisTest test = new MybatisTest();
 
-			test.updateTeamId(0, 1);
+			test.updateTeamId(0, 2);
 	}
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mybatis.mappers.TestMapper">
+<mapper namespace="mybatis.mappers.TeamPageMapper">
 
 	<!-- <select id="insertTeampageArticle" parameterType="string" resultType="kr.co.sist.football.test.model.dto.TeampageDTO"> 
 		select * from TeampageDTO </select> -->
@@ -11,11 +11,28 @@
 		#{name},#{email},#{password},#{tel},#{position},sysdate) </insert> -->
 
 	<update id="updateTeamId" parameterType="HashMap">
-		update member set team_id = #{teamId} where member.id = #{memberId}
+		update member set
+		team_id = #{teamId} where member.id = #{memberId}
 	</update>
-	
-	<select id="selectCountTeamMember" parameterType="kr.co.sist.football.test.model.dto.TeampageDTO">
-		select count(*) from member where member.team_id = #{team_id}
+
+
+	<select id="selectTeamInfo" parameterType="int"
+		resultType="kr.co.sist.football.teampage.model.dto.TeamInfo">
+		SELECT
+		id,
+		name,
+		logo_path logoPath,
+		present_num presentNum,
+		max_num maxNum,
+		uniform_color_code uniformColorCode,
+		strength_code
+		strengthCode,
+		location,
+		formation
+		FROM
+		team_info
+		WHERE
+		id=#{teamId}
 	</select>
 
 </mapper>
