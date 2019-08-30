@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <title>Document</title>
-<link rel="stylesheet" type="text/css" href="/resources/css/default.css" />
+<link rel="stylesheet" type="text/css" href="test.css" />
+
 <style type="text/css">
 * {
 	box-sizing: border-box;
@@ -139,14 +138,95 @@ img {
 	height: 178px;
 	border-radius: 100px;
 }
+
+/*playerpagecss  */
+.platercard {
+	position: relative;
+	width: 250px;
+	height: 350px;
+	margin: 60px auto;
+}
+
+.platercard:hover>.thecard {
+	transform: rotateY(180deg);
+	cursor: pointer;
+}
+
+.thecard {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3d;
+	transition: all 0.5s ease;
+}
+
+thecard:hover {
+	transform: rotateY(180deg);
+}
+
+.thefront {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	background: goldenrod;
+	color: black;
+	text-align: center;
+	font-family: 'zilla slab', sans-serif;
+	border-radius: 10px;
+	font-size: 20spx;
+	font-weight: bold;
+}
+
+.thefront p {
+	font-size: 65px;
+	line-height: 65px;
+}
+
+.theback {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	background: #fafafa;
+	color: #555;
+	text-align: center;
+	font-family: 'zilla slab', sans-serif;
+	border-radius: 10px;
+	text-align: left;
+	transform: rotateY(180deg);
+}
+
+.cardContent {
+	font-size: 12px;
+	padding: 8px;
+}
+
+img.bottomright {
+	position: absolute;
+	bottom: 8px;
+	right: 16px;
+	font-size: 18px;
+	width: 50px;
+	height: 50px;
+}
+
+img.player {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
 </style>
+
+
+
 </head>
 <body>
 	<div class="container_body">
-		<form style="width:100%;"class="form-horizontal" role="form" method="post"
+		<form class="form-horizontal" role="form" method="post"
 			action="teampagePro" name="userinput" onsubmit="return checkIt()">
 			<div class="content">
-				<a href="teampage/teampage"><img src="" alt="TEAMLOGO" /></a>
+				<a href="teampage/teampage " alt="TEAMLOGO" /></a>
 				<p>TEAMID:${teampage.getTeamInfo().getName()}</p>
 				<p>현원:${teampage.getTeamInfo().getPresentNum()}</p>
 				<p>정원:${teampage.getTeamInfo().getMaxNum()}</p>
@@ -159,24 +239,39 @@ img {
 					<li><a href="#" id="current">TEAMHISTORY</a>
 						<ul>
 							<li><a href="#">팀소개</a></li>
-							<li><a href="#">팀전적</a></li>
+							<li><a href="#">팀전적 </a></li>
 							<li><a href="#">팀활동</a></li>
 						</ul></li>
 					<li><a href="teampage/player">선수정보</a></li>
 				</ul>
 			</div>
 
-			<br> <br> <br> <br> <br> <br>
 
-			<div class="row">
-				<div class="column" style="background-color: orange;"></div>
-				<div class="column" style="background-color: yellow;"></div>
-				<div class="column" style="background-color: green;"></div>
+			<br> <br> <br>
+
+			<div class="platercard">
+				<div class="thecard">
+					<div class="thefront">
+						<p>
+							<img src="/team/image/ë¦¬ë²í161.jpg" class="player">
+						</p>
+						<span>선수소개</span>
+					</div>
+					<div class="theback">
+						<div class="cardContent">
+							<h2>선수정보</h2>
+							<h3>이름:</h3>
+							<h3>나이:</h3>
+							<h3>포지션:</h3>
+							<h3>자기소개:</h3>
+							<img src="" class="bottomright">
+						</div>
+					</div>
+				</div>
+
+
 			</div>
-			<br> <br> <br> <br> <br> <br>
-		</form>
 	</div>
-
 </body>
 <script src="/resources/js/Templating.js"></script>
 <script>
