@@ -10,6 +10,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- css -->
+<link rel="stylesheet" type="text/css"
+	href="/resources/css/gamelist.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/default.css" />
 <!-- add css here! -->
 </head>
@@ -38,7 +40,7 @@
 			<div id="div_con5">참가하기</div>
 			<!-- 버튼 눌렀을때 원하는 방 참가하는 기능 구현하기 -->
 		</div>
-		<div id="div_menu" class="vertical-menu" >
+		<div id="div_menu" class="vertical-menu">
 			<h1>TeamInfo</h1>
 			<div id="div_con2">
 				팀이름</br>${gamelist.teamInfo.name }</div>
@@ -63,7 +65,7 @@
 				<div id="div_con2">
 					게임번호 #${gameInfo.id}<br /> ${gameInfo.description}
 				</div>
-			</c:forEach>
+			</c:forEach> 
 		</div>
 		<div id="div_menu3" class="vertical-menu">
 			<div id="div_menu4">
@@ -78,118 +80,6 @@
 		</div>
 	</div>
 </body>
-
-
-<style>
-#div_menu {
-	width: 20%;
-	height: 800px;
-	float: left;
-	text-align: reft;
-	background-color: #white;
-	margin: 5px;
-}
-
-#div_menu2 {
-	width: 58%;
-	height: 800px;
-	float: left;
-	text-align: center;
-	background-color: #white;
-	margin: 5px;
-	border: 1px solid red;
-}
-
-#div_menu3 {
-	width: 18%;
-	height: 800px;
-	float: left;
-	text-align: reft;
-	background-color: #white;
-	margin: 5px;
-}
-
-#div_menu4 {
-	width: 110%;
-	height: 800px;
-	float: center;
-	text-align: center;
-	background-color: #white;
-	margin: 5px;
-	border: 1px solid red;
-}
-
-#div_con {
-	width: 100%;
-	height: 100px;
-	text-align: left;
-	background-color: #FFFFCC;
-	margin: 5px;
-}
-
-#div_con2 {
-	width: 40%;
-	height: 50px;
-	display: inline-block;
-	text-align: center;
-	background-color: #CCFFCC;
-	margin: 5px 5px 5px 5px;
-	border: 1px solid gold;
-}
-
-#div_con3 {
-	width: 20%;
-	height: 10px;
-	display: inline-block;
-	text-align: center;
-	background-color: #CCFFCC;
-	margin: 5px 5px 5px 5px;
-	border: 1px solid gold;
-}
-
-#div_con4 {
-	width: 100%;
-	height: 200px;
-	text-align: left;
-	background-color: #45235F;
-	margin: 5px;
-}
-
-#div_con5 {
-	position: relative;
-	left: 1450px;
-	top: 60px;
-	width: 10%;
-	height: 30px;
-	display: inline-block;
-	text-align: center;
-	background-color: #711553;
-	margin: 5px 5px 5px 5px;
-	border: 1px solid blue;
-	width: 10%;
-	left: "300px";
-}
-
-#div_con6 {
-	width: 90%;
-	height: 200px;
-	text-align: left;
-	background-color: #45235F;
-	margin: 5px;
-}
-
-#div_con2:hover {
-	background-color: white;
-}
-
-#div_con5:hover {
-	background-color: #FF24B8;
-}
-
-#divIma {
-	text-align: center;
-}
-</style>
 <script src="/resources/js/Templating.js"></script>
 <!-- add script here! -->
 <script>

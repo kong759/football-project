@@ -7,13 +7,13 @@ const CONTAINER = {
 
   <div class="navbar">
     <a class="navbar_menu" href="/gamelist">
-      게임리스트
+      <b>게임리스트</b>
       </a>
      <a class="navbar_menu" href="/teamlist">
-      팀리스트
+      <b>팀리스트</b>
       </a>
       <a class="navbar_menu" href="/teampage">
-      팀페이지
+      <b>팀페이지</b>
       </a>
   </div>
 </div>
