@@ -1,2 +1,2 @@
-select*from Team_info;
+select*from team_info;
 

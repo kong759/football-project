@@ -99,7 +99,7 @@
 			<div class="rightcolumn">
 				<div class="TeamInformation">
 					<button class="TeamInformationButton" id="popbutton">
-						<a href="modal.html">팀 만들기</a>
+						<a href="${pageContext.request.contextPath}/teamlist/createteam">팀 만들기</a>
 					</button>
 					<div class="cookie" style="height: 900px;">cookie</div>
 				</div>
