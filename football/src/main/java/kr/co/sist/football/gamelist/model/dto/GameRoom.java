@@ -2,9 +2,6 @@ package kr.co.sist.football.gamelist.model.dto;
 
 import java.sql.Date;
 
-import org.apache.ibatis.type.Alias;
-
-
 public class GameRoom {
   
 	private String id;
