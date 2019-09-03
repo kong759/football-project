@@ -30,7 +30,7 @@
         <div class="form-group">
           <label class="control-label col-sm-3">구단이름 <br></label>
           <div class="col-md-5 col-sm-8">
-            <input type="text" class="form-control" name="TeamName" id="TeamName" placeholder="생성할 팀의 이름을 입력해주세요.">
+            <input type="text" class="form-control" name="name" id="name" placeholder="생성할 팀의 이름을 입력해주세요.">
           </div>
         </div>
         
@@ -39,7 +39,7 @@
           <div class="col-md-8 col-sm-9">
             <div class="form-inline">
               <div class="form-group">&nbsp;&nbsp;&nbsp;
-                <select name="dd" class="form-control">
+                <select name="maxNum" id="maxNum" class="form-control">
                   <option value="최대 인원">최대 인원</option>
                   <option value="2" >2 </option><option value="3" >3 </option><option value="4" >4 </option><option value="5" >5 </option><option value="6" >6 </option><option value="7" >7 </option><option value="8" >8 </option><option value="9" >9 </option><option value="10" >10 </option><option value="11" >11 </option><option value="12" >12 </option><option value="13" >13 </option><option value="14" >14 </option><option value="15" >15 </option><option value="16" >16 </option><option value="17" >17 </option><option value="18" >18 </option><option value="19" >19 </option><option value="20" >20 </option><option value="21" >21 </option><option value="22" >22 </option><option value="23" >23 </option><option value="24" >24 </option><option value="25" >25 </option>             
                   </select>
@@ -63,7 +63,7 @@
         <div class="form-group">
           <label class="control-label col-sm-3">활동 지역</label>
           <div class="col-md-5 col-sm-8">
-            <input type="text" class="form-control" name="TeamName" id="TeamName" placeholder="자주 활동하는 지역을 입력해주세요..">
+            <input type="text" class="form-control" name="location" id="location" placeholder="자주 활동하는 지역을 입력해주세요..">
           </div>
         </div>
       
@@ -71,7 +71,7 @@
           <label class="control-label col-sm-3">로고 이미지 <br></label>
           <div class="col-md-5 col-sm-8">
             <div class="input-group"> <span class="input-group-addon" id="file_upload"><i class="glyphicon glyphicon-upload"></i></span>
-              <input type="file" name="file_nm" id="file_nm" class="form-control upload" placeholder="" aria-describedby="file_upload">
+              <input type="file" name="uploadname" id="logoPath" class="form-control upload" placeholder="" aria-describedby="file_upload">
             </div>
           </div>
         </div>

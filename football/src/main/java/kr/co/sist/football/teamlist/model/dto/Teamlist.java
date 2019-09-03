@@ -2,6 +2,8 @@ package kr.co.sist.football.teamlist.model.dto;
 
 import java.util.List;
 
+import kr.co.sist.football.common.model.dto.TeamInfo;
+
 public class Teamlist {
 	private int teamCount;
 	private List<TeamInfo> teamInfos;
