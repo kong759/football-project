@@ -15,15 +15,13 @@
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/test.css" />
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/TeamPage.css" />
+	href="${pageContext.request.contextPath}/resources/css/teamlist.css" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/modal.css" />
-
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/default.css" />
 </head>
 <body>
-
 	<div class="container_body">
 		<!--TeamInformation body  -->
 		<div class="container-fluid bg-light ">
@@ -78,17 +76,17 @@
 			</div>
 		</div>
 
-		<div style="display: flex; width: 100%;">
+		<div class="container_block">
+			<h2>팀 개수:${teamlist.teamCount}</h2>
+		</div>
+		<div class="container_flex">
 			<div class="leftcolumn">
-				<div style="display:block">
-					<h2>팀 개수:${teamlist.teamCount}</h2>
-				</div>
 				<c:forEach var="teamInfo" items="${teamlist.teamInfos}">
 					<div class="TeamInformation">
 						<h2>${teamInfo.name}</h2>
 						<h6>Team reader xxx</h6>
 						<h6>DEC 9, 2019</h6>
-						<div class="Information" style="height: 200px;">TeamLogo</div>
+						<div class="Information" >TeamLogo</div>
 						<p>ETC..</p>
 						<p>Sunt in culpa qui officia deserunt mollit anim id est
 							laborum consectetur adipiscing elit, sed do eiusmod tempor
@@ -101,7 +99,7 @@
 					<button class="TeamInformationButton" id="popbutton">
 						<a href="${pageContext.request.contextPath}/teamlist/createteam">팀 만들기</a>
 					</button>
-					<div class="cookie" style="height: 900px;">cookie</div>
+					<div class="cookie" >cookie</div>
 				</div>
 				<!--TeamInformation body  -->
 			</div>

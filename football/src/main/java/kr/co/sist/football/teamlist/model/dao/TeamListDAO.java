@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.sist.football.teamlist.model.dto.TeamInfo;
+import kr.co.sist.football.common.model.dto.TeamInfo;
 import mybatis.config.MybatisConnector;
 
 @Repository
@@ -53,18 +53,6 @@ public class TeamListDAO {
 		try {
 			List<TeamInfo> teamList = sqlSession.selectList(namespace + ".selectTeaminfoList");
 			return teamList;
-		} finally {
-			sqlSession.close();
-		}
-	}
-
-	// 특정 팀 정보를 뽑아오는 메소드
-	public TeamInfo getTeamInfo(int teamId) {
-		SqlSession sqlSession = mybatisconnector.sqlSession();
-
-		try {
-			TeamInfo teamInfo = sqlSession.selectOne(namespace + ".selectTeamInfo", teamId);
-			return teamInfo;
 		} finally {
 			sqlSession.close();
 		}
