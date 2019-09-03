@@ -51,6 +51,6 @@ public class TeamlistServiceImpl implements kr.co.sist.football.teamlist.model.s
 	@Override
 	public void getTeamInfo(int teamId) {
 		// TODO Auto-generated method stub
-
+		System.out.println("");
 	}
 }
