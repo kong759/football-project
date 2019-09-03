@@ -50,10 +50,12 @@ const CONTAINER = {
                   </div>
                 </nav>
                 <!-- End mainmenu-->
-               
-               
               </div>
               <!-- End nav Header-->
+            </div>
+            <div class="header-top">
+              <a>log-in</a>
+              <a>join</a>
             </div>
           </div>
         </div>
