@@ -35,7 +35,7 @@ const CONTAINER = {
                                 <a href="/gamelist">Matches</a>
                             </li>
                             <li>
-                                 <a href="/gameschedule">Match Calendars</a>
+                                <a href="/gameschedule">Match Calendars</a>
                             </li>
                         </ul>
                       </li>
@@ -54,8 +54,8 @@ const CONTAINER = {
               <!-- End nav Header-->
             </div>
             <div class="header-top">
-              <a>log-in</a>
-              <a>join</a>
+              <a href="/login">log-in</a>
+              <a href="/register">join</a>
             </div>
           </div>
         </div>
