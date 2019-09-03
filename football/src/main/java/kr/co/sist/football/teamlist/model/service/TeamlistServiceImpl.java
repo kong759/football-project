@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import kr.co.sist.football.common.model.dto.TeamInfo;
 import kr.co.sist.football.teamlist.model.dao.TeamListDAO;
 import kr.co.sist.football.teamlist.model.dto.Teamlist;
+import kr.co.sist.football.teamlist.model.dto.TeamlistCondition;
 
 @Service
 public class TeamlistServiceImpl implements kr.co.sist.football.teamlist.model.service.TeamlistService {
@@ -30,7 +31,7 @@ public class TeamlistServiceImpl implements kr.co.sist.football.teamlist.model.s
 		}
 
 		teamInfo.setId(teamId);
-		
+
 		teamListDAO.insertTeamInfo(teamInfo);
 	}
 
@@ -53,4 +54,19 @@ public class TeamlistServiceImpl implements kr.co.sist.football.teamlist.model.s
 		// TODO Auto-generated method stub
 		System.out.println("");
 	}
+
+	@Override
+	public Teamlist getTeamListByCondition(TeamlistCondition teamlistCondition, int recruitCode) {
+		Teamlist teamlist = new Teamlist();
+		teamlist.setTeamCount(teamListDAO.getTeamCount());
+		
+		if (recruitCode == ONGOING) {
+			teamlist.setTeamInfos(teamListDAO.getTeamListByCondition(teamlistCondition));
+		}
+		if (recruitCode == DONE) {
+			teamlist.setTeamInfos(teamListDAO.getTeamListByConditionRecruitDone(teamlistCondition));
+		}
+		return teamlist;
+	}
+
 }
