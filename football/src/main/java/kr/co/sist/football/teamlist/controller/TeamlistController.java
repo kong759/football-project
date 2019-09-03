@@ -55,10 +55,10 @@ public class TeamlistController {
         }else {
         	teamInfo.setLogoPath("");
         }
-		System.out.println("오류 발생1"+teamInfo);
+		
 		teamlistServiceImpl.insertTeamInfo(teamInfo);
 
-		return "team/teamlist";// 종현이 형이 만든 팀페이지로 이동
+		return "team/teamlist";//
 	}
 
 	@RequestMapping(value = "/insertteam", method = RequestMethod.GET)
