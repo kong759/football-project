@@ -1,6 +1,7 @@
 package kr.co.sist.football.teampage;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -15,7 +16,7 @@ import mybatis.config.MybatisConnector;
 public class MybatisTest {
 
 	GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("root-context.xml");
-	private final String namespace = "mybatis.mappers.TestMapper";
+	private final String namespace = "mybatis.mappers.TeamListMapper";
 	MybatisConnector mybatisconnector = ctx.getBean(MybatisConnector.class);
 
 	public MybatisTest() {
@@ -43,7 +44,7 @@ public class MybatisTest {
 			sqlSession.close();
 		}
 	}
-	// 팀 가입할 떄 insert 넣는 메소드 ex)쿼리문을 처리하기 위하여 매개변수 지정
+	// �� 媛��엯�븷 �뻹 insert �꽔�뒗 硫붿냼�뱶 ex)荑쇰━臾몄쓣 泥섎━�븯湲� �쐞�븯�뿬 留ㅺ컻蹂��닔 吏��젙
 	public int insertTeamInfo(TeamInfo teamListDTO) {
 		SqlSession sqlSession = mybatisconnector.sqlSession();
 
@@ -54,12 +55,22 @@ public class MybatisTest {
 			sqlSession.close();
 		}
 	}
+	public List<TeamInfo> getTeamList() {
+		SqlSession sqlSession = mybatisconnector.sqlSession();
+
+		try {
+			List<TeamInfo> teamList = sqlSession.selectList(namespace + ".selectTeaminfoList");
+			System.out.println(teamList);
+			return teamList;
+		} finally {
+			sqlSession.close();
+		}
+	}
 	
 
 	public static void main(String[] args) throws Exception {
 		MybatisTest test = new MybatisTest();
 
-
-			test.insertTeamInfo(null);
+			test.getTeamList();
 	}
 }

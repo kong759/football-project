@@ -38,7 +38,7 @@ public class TeamlistController {
 
 		model.addAttribute("teamlist", teamlist);
 
-		return "team/teams";
+		return "team/Teamlist";
 	}
 
 	@RequestMapping(value = "/insertteam", method = RequestMethod.POST)
@@ -58,7 +58,7 @@ public class TeamlistController {
 		
 		teamlistServiceImpl.insertTeamInfo(teamInfo);
 
-		return "team/teamlist";//
+		return "team/Teamlist";//
 	}
 
 	@RequestMapping(value = "/insertteam", method = RequestMethod.GET)
@@ -66,10 +66,4 @@ public class TeamlistController {
 
 		return "team/Teaminsert";
 	}
-	@RequestMapping("/html")
-	public String asd(Model model) {
-		
-		return "team/teams";
-	}
-
 }

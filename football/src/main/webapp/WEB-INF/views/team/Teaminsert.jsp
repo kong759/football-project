@@ -41,29 +41,32 @@
               <div class="form-group">&nbsp;&nbsp;&nbsp;
                 <select name="maxNum" id="maxNum" class="form-control">
                   <option value="최대 인원">최대 인원</option>
-                  <option value="2" >2 </option><option value="3" >3 </option><option value="4" >4 </option><option value="5" >5 </option><option value="6" >6 </option><option value="7" >7 </option><option value="8" >8 </option><option value="9" >9 </option><option value="10" >10 </option><option value="11" >11 </option><option value="12" >12 </option><option value="13" >13 </option><option value="14" >14 </option><option value="15" >15 </option><option value="16" >16 </option><option value="17" >17 </option><option value="18" >18 </option><option value="19" >19 </option><option value="20" >20 </option><option value="21" >21 </option><option value="22" >22 </option><option value="23" >23 </option><option value="24" >24 </option><option value="25" >25 </option>             
+                  <option value="05" >05 </option> 
+                  <option value="10" >10 </option>
+                  <option value="15" >15 </option>
+                  <option value="20" >20 </option>
+                  <option value="25" >25 </option>             
                   </select>
               </div>
             </div>
           </div>
         </div>
         
-       <!--  <div class="form-group">
-          <label class="control-label col-sm-3">유니폼의 유/무 <span class="text-danger">*</span></label>
+        <div class="form-group">
+          <label class="control-label col-sm-3">활동 지역 <span class="text-danger">*</span></label>
           <div class="col-md-8 col-sm-9">
             <label>
-            <input name="uniform" type="radio" value="유" checked>
-            유 </label>
+            <input name="uniform" type="radio" value="서울" checked>
+            서울 </label>
             <label>
-            <input name="uniform" type="radio" value="무" >
-            무 </label>
-          </div>
-        </div> -->
-        
-        <div class="form-group">
-          <label class="control-label col-sm-3">활동 지역</label>
-          <div class="col-md-5 col-sm-8">
-            <input type="text" class="form-control" name="location" id="location" placeholder="자주 활동하는 지역을 입력해주세요..">
+            <input name="uniform" type="radio" value="경기도" >
+            경기도 </label>
+            <label>
+            <input name="uniform" type="radio" value="광주" >
+            광주 </label>
+            <label>
+            <input name="uniform" type="radio" value="부산" >
+            부산 </label>
           </div>
         </div>
       
