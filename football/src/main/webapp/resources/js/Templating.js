@@ -28,7 +28,7 @@ const CONTAINER = {
                       <li class="current">
                         <a href="/teamlist">Teams</a>
                       </li>
-                      <li>
+                      <li class="current">
                         <a href="/gamelist">Matches</a>
                         <ul class="sub-current">
                             <li>
