@@ -58,12 +58,6 @@ public class TeamlistController {
 		
 		teamlistServiceImpl.insertTeamInfo(teamInfo);
 
-		return "team/Teamlist";//
-	}
-
-	@RequestMapping(value = "/insertteam", method = RequestMethod.GET)
-	public String insertteam(TeamInfo info, BindingResult result, Model model) {
-
-		return "team/Teaminsert";
+		return "redirect:/teamlist";//
 	}
 }
