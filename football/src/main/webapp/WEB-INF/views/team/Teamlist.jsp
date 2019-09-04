@@ -68,48 +68,53 @@
 				<!-- Nav Filters -->
 				<div class="container-fluid bg-light ">
 					<div class="row align-items-center justify-content-center">
-						<div class="col-md-2 pt-3">
-							<div class="form-group ">
-								<select id="inputState " class="form-control">
-									<option selected>지역</option>
-									<option>서울</option>
-									<option>경기</option>
-									<option>광주</option>
-									<option>부산</option>
-								</select>
+						<form id="searchForm" action = "/teamlist/byCondition" class="row align-items-center justify-content-center" style="width:100%">
+							<div class="col-md-2 pt-3">
+								<div class="form-group ">
+									<select id="inputState " class="form-control" name = "location">
+										<option value="0" selected>지역</option>
+										<option value="02">서울</option>
+										<option value="031">경기</option>
+										<option value="062">광주</option>
+										<option value="051">부산</option>
+									</select>
+								</div>
 							</div>
-						</div>
 
-						<div class="col-md-2 pt-3">
-							<div class="form-group">
-								<select id="inputState" class="form-control">
-									<option selected>인원 수</option>
-									<option>05명 이하</option>
-									<option>10명 이하</option>
-									<option>15명 이하</option>
-									<option>20명 이하</option>
-								</select>
+							<div class="col-md-2 pt-3">
+								<div class="form-group">
+									<select id="inputState" class="form-control" name = "presentNum">
+										<option value = "0" selected>인원 수</option>
+										<option value="5">05명 이하</option>
+										<option value="10">10명 이하</option>
+										<option value="15">15명 이하</option>
+										<option value="20">20명 이하</option>
+									</select>
+								</div>
 							</div>
-						</div>
 
-						<div class="col-md-2 pt-3">
-							<div class="form-group">
-								<select id="inputState" class="form-control">
-									<option selected>모집 유/무</option>
-									<option>모집 중</option>
-									<option>모집 완료</option>
-								</select>
+							<div class="col-md-2 pt-3">
+								<div class="form-group">
+									<select id="inputState" class="form-control" name = "recruit">
+										<option value = "" selected>모집 유/무</option>
+										<option value="ongoing">모집 중</option>
+										<option value="done">모집 완료</option>
+									</select>
+								</div>
 							</div>
-						</div>
+							<div class="col-md-2">
+								<button id="searchButton" type="button"
+									class="btn btn-primary btn-block">Search</button>
+							</div>
 
-						<div class="col-md-2">
-							<button type="button" class="btn btn-primary btn-block">Search</button>
-						</div>
 						<div class="col-md-3">
 							<button type="button" class="btn btn-primary">
 								<a class="btn-insertTeam">팀 만들기</a>
 							</button>
 						</div>
+
+						</form>
+
 					</div>
 				</div>
 				<!-- End Nav Filters -->
@@ -210,13 +215,13 @@
 											class="text-danger">*</span></label>
 										<div class="col-md-8 col-sm-9">
 											<label> <input name="location" type="radio"
-												value="서울" checked> 서울
+												value="02" checked> 서울
 											</label> <label> <input name="location" type="radio"
-												value="경기도"> 경기도
+												value="031"> 경기도
 											</label> <label> <input name="location" type="radio"
-												value="광주"> 광주
+												value="062"> 광주
 											</label> <label> <input name="location" type="radio"
-												value="부산"> 부산
+												value="051"> 부산
 											</label>
 										</div>
 									</div>
@@ -271,6 +276,7 @@
 	<script type="text/javascript" src="/resources/js/theme-main.js"></script>
 	<!-- ======================= End JQuery libs =========================== -->
 </body>
+<script src="/resources/js/Teamlist.js"></script>
 <script src="/resources/js/Templating.js"></script>
 <script type="text/javaScript" language="javascript"> 
       
@@ -295,7 +301,8 @@
     
        
       window.onload = function() {
-      initPage();
+	  initPage();
+	  teamlist.setSearchEvent();
    };
 </script>
 </html>
