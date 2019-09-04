@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.sist.football.common.model.dto.TeamInfo;
+import kr.co.sist.football.teamlist.model.dto.TeamlistCondition;
 import mybatis.config.MybatisConnector;
 
 @Repository
@@ -24,15 +25,22 @@ public class TeamListDAO {
 	}
 
 	// 팀 가입할 떄 insert 넣는 메소드 ex)쿼리문을 처리하기 위하여 매개변수 지정
-	public int insertTeamInfo(TeamInfo teamListDTO) {
+	public int insertTeamInfo(TeamInfo teamInfo) {
 		SqlSession sqlSession = mybatisconnector.sqlSession();
-
+		System.out.println(teamInfo);
 		try {
-			int insertTeamResult = sqlSession.insert(namespace + ".insertTeamInfo", teamListDTO);
+			int insertTeamResult = sqlSession.insert(namespace + ".insertTeamInfo", teamInfo);
 			return insertTeamResult;
 		} finally {
 			sqlSession.close();
 		}
+	}
+
+	public int getMaxTeamId() {
+
+		Integer maxTeamId = mybatisconnector.sqlSession().selectOne(namespace + ".selectMaxTeamId");
+
+		return maxTeamId;
 	}
 
 	// 모든 팀 count를 뽑아오는 메소드
@@ -56,5 +64,13 @@ public class TeamListDAO {
 		} finally {
 			sqlSession.close();
 		}
+	}
+
+	public List<TeamInfo> getTeamListByCondition(TeamlistCondition teamlistCondition) {
+		return mybatisconnector.sqlSession().selectList(namespace + ".selectTeaminfoListByCondition", teamlistCondition);
+	}
+
+	public List<TeamInfo> getTeamListByConditionRecruitDone(TeamlistCondition teamlistCondition) {
+		return mybatisconnector.sqlSession().selectList(namespace + ".selectTeaminfoListByConditionRecruitDone", teamlistCondition);
 	}
 }

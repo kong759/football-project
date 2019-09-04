@@ -4,7 +4,8 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import kr.co.sist.football.teamlist.model.dto.TeamInfo;
+import kr.co.sist.football.common.model.dto.TeamInfo;
+
 
 public class TeamValidator implements Validator {
 

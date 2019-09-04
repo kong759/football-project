@@ -13,6 +13,10 @@
 	<mvc:resources mapping="/resources/**"
 		location="/resources/" />
 
+	<mvc:resources location="/filesave/,/resources/"
+		mapping="/images/**" cache-period="60" />
+
+
 	<beans:bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
@@ -20,13 +24,18 @@
 	</beans:bean>
 
 	<mvc:annotation-driven></mvc:annotation-driven>
-
+	<!-- 파일업로드 때문에 추가 -->
+	<mvc:resources location="/filesave/, /resources/"
+		mapping="/images/**" cache-period="60" />
 	<context:component-scan
 		base-package="kr.co.sist.football" use-default-filters="false">
 		<context:include-filter type="regex"
 			expression="kr.co.sist.football.*.controller.*" />
 	</context:component-scan>
-
-
+	<!-- 파일업로드 때문에 추가 -->
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="defaultEncoding" value="utf-8" />
+	</beans:bean>
 
 </beans:beans>
