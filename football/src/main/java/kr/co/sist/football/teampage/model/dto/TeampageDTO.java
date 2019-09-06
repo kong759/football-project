@@ -21,6 +21,11 @@ public class TeampageDTO {
 		this.id = id;
 	}
 
+	// 팀탈퇴 유효성 검사
+	public boolean matchPassword(String password) {
+
+		return password.equals(password);
+	}
 
 	@Override
 	public String toString() {

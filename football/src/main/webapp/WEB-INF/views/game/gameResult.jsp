@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8" %>
+<%@ page contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +29,58 @@
 	<!-- layout-->
 	<div id="layout">
 		<!-- main contents -->
-		<div class="container_body"></div>
+		<div class="container_body">
+			<div class="section-title" style="background: url(img/slide/1.jpg)">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8">
+							<h1>Points Table</h1>
+						</div>
+
+						<div class="col-md-4">
+							<div class="breadcrumbs">
+								<ul>
+									<li><a href="index.html">Home</a></li>
+									<li>Inner Page</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<section class="content-info">
+
+				<div class="container padding-top">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="recent-results results-page">
+								<c:forEach items="${gamelist.gameInfos}" var="gameInfo">
+									<div class="info-results">
+										<ul>
+
+											<li><span class="head">게임 번호: ${gameInfo.id} 팀 이름
+													Vs 팀 이름 </span>
+												<h3>${gameInfo.name}</h3>
+												<div class="goals-result">
+													<a href="single-team.html"> <img
+														src="img/clubs-logos/por.png" alt=""> 팀 이름
+													</a> <span class="goals"> <b>2</b> - <b>3</b> <a
+														href="single-result.html" class="btn theme">View More</a>
+													</span> <a href="single-team.html"> <img
+														src="img/clubs-logos/esp.png" alt=""> 팀 이름
+													</a>
+												</div></li>
+										</ul>
+									</div>
+								</c:forEach>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</section>
+		</div>
 	</div>
 	<!-- End layout-->
 
@@ -45,11 +96,12 @@
 	<!-- theme-main.js-->
 	<script type="text/javascript" src="/resources/js/theme-main.js"></script>
 	<!-- ======================= End JQuery libs =========================== -->
-	</body>
+</body>
 <script src="/resources/js/Templating.js"></script>
 <script>
 	window.onload = function() {
-		initPage("<%=session.getAttribute("userId")%>");
+		initPage("<%=session.getAttribute("userId")%>
+	");
 	};
 </script>
 </html>

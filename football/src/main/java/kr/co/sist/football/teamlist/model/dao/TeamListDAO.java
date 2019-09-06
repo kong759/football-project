@@ -42,6 +42,13 @@ public class TeamListDAO {
 
 		return maxTeamId;
 	}
+	
+	public int getMaxPresentNum() {
+
+		Integer maxPresentNum = mybatisconnector.sqlSession().selectOne(namespace + ".selectMaxpresentNum");
+
+		return maxPresentNum;
+	}
 
 	// 모든 팀 count를 뽑아오는 메소드
 	public int getTeamCount() {

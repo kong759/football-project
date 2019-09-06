@@ -10,23 +10,23 @@
 		status_code statusCode,
 		max_person_num
 		maxPersonNum,
+		max_team_num
+		maxTeamNum,
 		kind,
 		duration,
+		game_date gameDate,
 		description,
-		maxnum_team
-		maxnumTeam,
-				TO_CHAR(GAME_DATE, 'MM:DD') m,
-        TO_CHAR(game_date,'HH24:MI') n
+		name
 		FROM
 		game_info
-		
+
 		WHERE
 		ROWNUM <![CDATA[<=]]>
 		#{endNum}
 		AND
 		#{startNum} <![CDATA[<=]]>
 		ROWNUM
-		ORDER BY 
+		ORDER BY
 		id
 		DESC
 	</select>
@@ -40,5 +40,47 @@
 		WHERE
 		id = #{gameInfoId}
 	</select>
+	<insert id="insertGameRoom"
+		parameterType="kr.co.sist.football.common.model.dto.GameInfo">
+		INSERT INTO game_info(
+		id,
+		status_code,
+		max_person_num,
+		max_team_num,
+		kind,
+		game_date,
+		duration,
+		name
+		)
+		VALUES(
+		#{id},
+		#{statusCode},
+		#{maxPersonNum},
+		#{maxTeamNum},
+		#{kind},
+		SYSDATE,
+		#{duration},
+		#{name}
+	
+		)
+	</insert>
+	<select id = "selectMaxGameId" resultType="int">
+		SELECT 
+			max(id)
+		FROM 
+			game_info
+	</select>
 
+<insert id="insertTeamParticipate"
+		parameterType="kr.co.sist.football.common.model.dto.TeamInfo">
+		insert into Team_participate(
+		GAME_ID,
+		TEAM_ID
+		)
+		VALUES(
+		#{gameId} ,
+		#{teamId}
+		)
+		
+	</insert>
 </mapper>

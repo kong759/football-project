@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.sist.football.common.model.dto.GameInfo;
 import kr.co.sist.football.gameschedule.model.dao.GameDao;
-import kr.co.sist.football.gameschedule.model.dto.GameInfoByMonth;
+import kr.co.sist.football.gameschedule.model.dto.GameCount;
 
 @Service
 public class GamescheduleService {
@@ -19,14 +19,27 @@ public class GamescheduleService {
 		this.gameDao = gameDao;
 	}
 
-	public GameInfoByMonth getGameInfo(int month, int kind) {
-		GameInfoByMonth gameInfoByMonth = new GameInfoByMonth();
-		List<GameInfo> gameInfos = gameDao.getGamesByDate(month, kind);
-		int gameCount = gameDao.getGameCount(kind);
-
-		gameInfoByMonth.setGameInfo(gameInfos);
-		gameInfoByMonth.setGameCount(gameCount);
-
-		return gameInfoByMonth;
+	/*
+	 * public GameInfoByMonth getGameInfo(int month, int kind) { GameInfoByMonth
+	 * gameInfoByMonth = new GameInfoByMonth(); List<GameInfo> gameInfo =
+	 * gameDao.getGamesByDate(month, kind); int gameCount =
+	 * gameDao.getGameCount(kind);
+	 * 
+	 * gameInfoByMonth.setGameInfo(gameInfo);
+	 * gameInfoByMonth.setGameCount(gameCount);
+	 * 
+	 * return gameInfoByMonth; }
+	 */
+	
+	public List<GameCount> getGameCount(){
+		List<GameCount> scheduleMap = gameDao.getGameCount();
+		return scheduleMap;
+	}
+	
+	public List<GameInfo> getGameInfo(String gamedate) {
+		List<GameInfo> gamelist = gameDao.getGameInfo(gamedate);
+		System.out.println("asd"+gamelist);
+		
+		return gamelist;
 	}
 }

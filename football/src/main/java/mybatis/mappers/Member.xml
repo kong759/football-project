@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mappers.MemberMapper">
+
+	<insert id="insertMemberInfo"
+		parameterType="kr.co.sist.football.member.model.dto.MemberDTO">
+		INSERT INTO member(
+			id,
+			team_id,
+			name,
+			nick_name,
+			password,
+			birthday,
+			tel,
+			pic_path,
+			foot_code
+		)
+		VALUES(
+			#{id},
+			#{teamId},
+			#{name},
+			#{nickname},
+			#{password},
+			#{birthday},
+			#{tel},
+			#{picPath},
+			#{footCode}
+		)
+	</insert>
+		<select id="selectMemberTeamId" resultType="int">
+		SELECT
+		max(TEAM_ID)
+		FROM
+		member
+	</select>
+	
+	<select id="passwordCheck" parameterType="hashmap" resultType="string">
+      select password from member where id = #{id}
+   </select>
+	
+</mapper>

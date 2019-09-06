@@ -1,5 +1,6 @@
 package kr.co.sist.football.teampage.model.service;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.sist.football.common.model.dao.CommonDao;
+import kr.co.sist.football.common.model.dto.TeamInfo;
 import kr.co.sist.football.teampage.model.dao.TeampageDAO;
 import kr.co.sist.football.teampage.model.dto.Teampage;
 
@@ -14,6 +16,7 @@ import kr.co.sist.football.teampage.model.dto.Teampage;
 public class TeampageService {
 
 	TeampageDAO teampageDAO;
+
 	CommonDao commonDao;
 
 	@Autowired
@@ -21,8 +24,6 @@ public class TeampageService {
 		this.teampageDAO = teampageDAO;
 		this.commonDao = commonDao;
 	}
-
-
 
 	public Teampage getTeampage(int teamId) {
 		Teampage teampage = new Teampage();
@@ -34,14 +35,22 @@ public class TeampageService {
 
 	public int setTeamId(int memberId, int teamId) {
 		int statusCode = -1;
-
 		Map<String, Integer> updateTeamIdMap = new HashMap<String, Integer>();
 		updateTeamIdMap.put("teamId", teamId);
 		updateTeamIdMap.put("memberId", memberId);
 
 		statusCode = teampageDAO.updateTeamId(updateTeamIdMap);
+		teampageDAO.updatePresentNum();
 
 		return statusCode;
+	}
 
+	public int quitTeam(int id, String password) {
+
+		int statusCode = -1;
+
+		statusCode = teampageDAO.deleteTeamId(0);
+
+		return statusCode;
 	}
 }

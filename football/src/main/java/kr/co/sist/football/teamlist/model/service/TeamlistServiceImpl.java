@@ -21,16 +21,22 @@ public class TeamlistServiceImpl implements kr.co.sist.football.teamlist.model.s
 	@Override
 	public void insertTeamInfo(TeamInfo teamInfo) {
 		int teamId;
-
+		int presentNum;
+		
 		try {
 			teamId = teamListDAO.getMaxTeamId() + 1;
+//			presentNum = teamListDAO.getMaxPresentNum();
+//			System.out.println(presentNum);
+			
 		} catch (NullPointerException e) {
-			System.err.println("최초 입력입니다.");
+			System.err.println("presentNum 1 입력입니다.");
 			System.err.println("team id로 1 입력.");
+//			presentNum = 0;
 			teamId = 1;
 		}
 
 		teamInfo.setId(teamId);
+//		teamInfo.setPresentNum(presentNum);
 
 		teamListDAO.insertTeamInfo(teamInfo);
 	}

@@ -34,4 +34,32 @@ public class TeampageDAO {
 			sqlSession.close();
 		}
 	}
+
+	public int updatePresentNum() {
+		return mybatisconnector.sqlSession().update(namespace + ".updatePresentNum");
+	}
+
+	// 팀 탈퇴
+	public int deleteTeamId(int id) {
+		SqlSession sqlSession = mybatisconnector.sqlSession();
+		int statusCode = 1;
+
+		try {
+			statusCode = sqlSession.update(namespace + ".updateTeamIdOfMemberToZero", 0);
+
+			return statusCode;
+
+		} finally {
+
+			sqlSession.close();
+		}
+	}
+
+	// presentNum 증가시키려고 max값뽑아냄 (null찾으려고)
+	public int getMaxpresentNum() {
+		Integer presentNum = mybatisconnector.sqlSession().selectOne(namespace + ".selectMaxpresentNum");
+
+		return presentNum;
+	}
+
 }

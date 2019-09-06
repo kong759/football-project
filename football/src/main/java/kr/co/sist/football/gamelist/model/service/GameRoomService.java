@@ -1,70 +1,47 @@
 package kr.co.sist.football.gamelist.model.service;
-//package kr.co.sist.football.test.model.service;
-//
-//import java.io.IOException;
-//import java.io.InputStream;
-//import java.util.HashMap;
-//import java.util.List;
-//import org.apache.ibatis.io.Resources;
-//import org.apache.ibatis.session.SqlSession;
-//import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.stereotype.Service;
-//
-//import kr.co.sist.football.test.model.dao.GameListDao;
-//import mybatis.config.MybatisConnector;
-//
-//
-//@Service
-//public class GameListService {
-//
-//	private final String namespace = "mybatis.board";
-//	@Autowired
-//	public MybatisConnector mybatisConnector;
-//
-//	public int getArticleCount(String boardid) throws Exception {
-//		SqlSession sqlSession = mybatisConnector.sqlSession();
-//		System.out.println("getArticleCount===old");
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Service;
+
+import kr.co.sist.football.common.model.dto.GameInfo;
+import kr.co.sist.football.gamelist.model.dao.GameRoomDao;
+import kr.co.sist.football.gamelist.model.dto.GameRoom;
+
+@Service
+public class GameRoomService {
+	private GameRoomDao gameRoomDao;
+
+	@Autowired
+	private GameRoomService(GameRoomDao gameRoomDao) {
+		this.gameRoomDao = gameRoomDao;
+	}
+
+	public void insertGameInfo(GameInfo gameInfo, int teamId) {
+		int gameId;
+
+		try {
+			gameId = GameRoomDao.getMaxGameId() + 1;
+		} catch (NullPointerException e) {
+			System.err.println("최초 입력입니다.");
+			System.err.println("game id로 1 입력.");
+			gameId = 1;
+		}
+		gameInfo.setId(gameId);
+		gameRoomDao.insertGameInfo(gameInfo, teamId);
+	}
+	
+//	//teamparticipate를 위한 추가사항
+//	public void insertJoinGame(TeamParticipate teamParticipate, int teamId) {
+//		int gameId;
 //		try {
-//			return sqlSession.selectOne(namespace + ".getArticleCount", boardid);
-//		} finally {
-//			sqlSession.close();
+//			gameId = GameRoomDao.getMaxGameId() + 1;
+//		} catch (NullPointerException e) {
+//			System.err.println("최초 입력입니다.");
+//			System.err.println("game id로 1 입력.");
+//			gameId = 1;
 //		}
+//		teamParticipate.setTeamId(teamId);
+//		gameRoomDao.insertJoinGame(teamParticipate, teamId);
 //	}
-//
-//	
-//	
-//	public GameListDao getUpdate(int num, String boardid) throws Exception {
-//		SqlSession sqlSession = mybatisConnector.sqlSession();
-//		HashMap map = new HashMap();
-//		map.put("num", num);
-//		map.put("boardid", boardid);
-//		GameListDao article = new GameListDao();
-//		try {
-//			article = (GameListDao) sqlSession.selectOne(namespace + ".getArticle", map);
-//			System.out.println(":::" + article);
-//		} finally {
-//			sqlSession.close();
-//			return article;
-//		}
-//	}
-//
-////	public int updateArticle(GameListDao article, String boardid) throws Exception {
-////		SqlSession sqlSession = mybatisConnector.sqlSession();
-////		HashMap map = new HashMap();
-////		map.put("num", article.getNum());
-////		int x = -1;
-////		try {
-////			String dbpasswd = (String) sqlSession.selectOne(namespace + ".update_passwd", map);
-////			if (dbpasswd.equals(article.getPasswd())) {
-////				x = sqlSession.update(namespace + ".update_update", article);
-////			}
-////		} finally {
-////			sqlSession.commit();
-////			sqlSession.close();
-////		}
-////		return x;
-////	}
-//	
-//}
+}

@@ -10,6 +10,14 @@
 	int year = cal.get(Calendar.YEAR);
 	int month = cal.get(Calendar.MONTH);
 	int date = cal.get(Calendar.DATE);
+	String smonth = Integer.toString(cal.get(Calendar.MONTH)+1);
+	String sdate = Integer.toString(cal.get(Calendar.DATE));
+	if(smonth.length() == 1){
+		smonth = "0" + smonth;
+	}
+	if(sdate.length() == 1){
+		sdate = "0" + sdate;
+	}
 	if (strYear != null) {
 		year = Integer.parseInt(strYear);
 		month = Integer.parseInt(strMonth);
@@ -26,19 +34,36 @@
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyMMdd");
 	int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
 %>
-
 <html lang="ko">
 
 <HEAD>
+<!-- Mobile Metas -->
+   <title>Football matching</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<!-- Theme CSS -->
+<link href="/resources/css/main.css" rel="stylesheet" media="screen" />
+
+<!-- Favicons -->
+<link rel="shortcut icon" href="/resources/img/icons/favicon.ico" />
+<link rel="apple-touch-icon"
+	href="/resources/img/icons/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72"
+	href="/resources/img/icons/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114"
+	href="/resources/img/icons/apple-touch-icon-114x114.png" />
 <link rel="stylesheet" type="text/css"
 	href="/resources/css/gameschedule.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/default.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </HEAD>
 
 <BODY>
 	<div class="container_body">
 		<!-- <form name="calendarFrm" id="calendarFrm" action="" method="get"> -->
-		<DIV id="content" style="width: 712px;">
+		<DIV id="content" style="width: 712px; margin-left: 33%">
 			<table width="100%" border="0" cellspacing="1" cellpadding="1">
 				<tr>
 					<td align="right"><input type="button"
@@ -149,8 +174,15 @@
 								}
 								out.println("<TD valign='top' align='left' height='92px' bgcolor='" + backColor + "' nowrap>");
 						%>
-						<font color='<%=color%>'> <%=index%><br />
-							<button class="btn-day">${gameInfoByMonth.gameCount }</button>
+						<font color='<%=color%>'><%=index%><br />
+					
+						<a class="btn btn-primary" data-toggle="modal" data-target="#myModal" href="/gameschedule/searchgame?gamedate=<%=iUseDate%>">
+<button name="gamedate" class="btn-day" id="<%=iUseDate%>" ></button></a>
+						
+						
+						
+						
+				
 						</font>
 						<%
 							out.println("<BR>");
@@ -176,16 +208,32 @@
 		</DIV>
 		<!-- </form> -->
 
-		<div id="myModal" class="modal" style="position: absolute;">
+		<div id="myModal" class="modal" style="position: absolute; size: 100%">
 			<!-- Modal content -->
 			<div class="modal-content">
 				<span class="close">&times;</span>
 				<h3>
-					<a href="">${gameInfoByMonth.gameInfo }</a>
+				<c:forEach var="gamelist" items="${gameMap}">
+					<a href="">${gamelist.id }</a>
+				</c:forEach> 
 				</h3>
 			</div>
 		</div>
 	</div>
+	<!-- End layout-->
+
+	<!-- ======================= JQuery libs =========================== -->
+	<!-- jQuery local-->
+	<script type="text/javascript" src="/resources/js/jquery.js"></script>
+	<!-- popper.js-->
+	<script type="text/javascript" src="/resources/js/popper.min.js"></script>
+	<!-- bootstrap.min.js-->
+	<script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
+	<!-- required-scripts.js-->
+	<script type="text/javascript" src="/resources/js/theme-scripts.js"></script>
+	<!-- theme-main.js-->
+	<script type="text/javascript" src="/resources/js/theme-main.js"></script>
+	<!-- ======================= End JQuery libs =========================== -->
 </BODY>
 <script src="/resources/js/Templating.js"></script>
 <script type="text/javaScript" language="javascript"> 
@@ -208,9 +256,25 @@
              modal.style.display = "none";
           }
        };
+    
        
    	window.onload = function() {
 		initPage();
 	};
 </script>
+
+<script type="text/javascript">
+	<c:forEach var="list" items="${scheduleMap}">
+		if(document.getElementById('${list.gamedate}')){
+		document.getElementById("${list.gamedate}").innerHTML = ${list.count} + 'G';
+		document.getElementById("${list.gamedate}").value = ${list.gamedate};
+		}
+	</c:forEach>
+	
+	  window.onload = function() {
+    	  initPage("<%=session.getAttribute("userId")%>");
+	  teamlist.setSearchEvent();
+   };
+</script>
+
 </HTML>

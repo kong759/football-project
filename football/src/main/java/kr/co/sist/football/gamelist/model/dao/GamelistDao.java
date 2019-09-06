@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.sist.football.common.model.dto.GameInfo;
+import kr.co.sist.football.gamelist.model.dto.CreateGame;
 import kr.co.sist.football.gamelist.model.dto.GameInfoParam;
 import kr.co.sist.football.gamelist.model.dto.GameLocation;
 import mybatis.config.MybatisConnector;
@@ -31,12 +32,10 @@ public class GamelistDao {
 		}
 	}
 
-	public GameLocation getGameLocationByGameId(int gameInfoId) {
-		SqlSession sqlSession = mybatisconnector.sqlSession();
-		try {
-			return sqlSession.selectOne(namespace + "selectGameLocation", gameInfoId);
-		} finally {
-			sqlSession.close();
-		}
-	}
+	
+	  public GameLocation getGameLocationByGameId(int gameInfoId) { SqlSession
+	  sqlSession = mybatisconnector.sqlSession(); try { return
+	  sqlSession.selectOne(namespace + "selectGameLocation", gameInfoId); } finally
+	  { sqlSession.close(); } }
+	
 }

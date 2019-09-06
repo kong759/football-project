@@ -1,14 +1,13 @@
 package kr.co.sist.football.gameschedule.model.dao;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.sist.football.common.model.dto.GameInfo;
+import kr.co.sist.football.gameschedule.model.dto.GameCount;
 import mybatis.config.MybatisConnector;
 
 @Repository
@@ -26,18 +25,8 @@ public class GameDao {
 		System.out.println(mybatisConnector.toString());
 		this.mybatisConnector = mybatisConnector;
 	}
-	// AutoWired를 생성자 형식으로 해 놓으면 더 괜찮다고 해놔서 이렇게 해놓은거임
 
-	public int getGameCount(int kind) {
-		SqlSession sqlSession = mybatisConnector.sqlSession();
-		try {
-			return sqlSession.selectOne(namespace + ".selectGameCount", kind);
-		} finally {
-			sqlSession.close();
-		}
-	}
-
-	public List<GameInfo> getGamesByDate(int month, int kind) {
+	/*public List<GameInfo> getGamesByDate(int month, int kind) {
 		SqlSession sqlSession = mybatisConnector.sqlSession();
 		Map<String, Integer> map = new HashMap<String, Integer>();
 
@@ -54,8 +43,28 @@ public class GameDao {
 		} finally {
 
 			sqlSession.close();
+		}*/
+	
+	public List<GameCount> getGameCount(){
+		SqlSession sqlSession = mybatisConnector.sqlSession();
+		try {
+			List<GameCount> scheduleMap = sqlSession.selectList(namespace + ".selectGameCount");
+			return scheduleMap;
+		} finally {
+			sqlSession.close();
 		}
-
+	
+	}
+	
+	public List<GameInfo> getGameInfo(String gamedate) {
+		SqlSession sqlSession = mybatisConnector.sqlSession();
+		try {
+			List<GameInfo> gameList = sqlSession.selectList(namespace + ".selectGamesByDate", gamedate);
+			System.out.println("dao" + gameList);
+			return gameList;
+		} finally {
+			sqlSession.close();
+		}
 	}
 
 }

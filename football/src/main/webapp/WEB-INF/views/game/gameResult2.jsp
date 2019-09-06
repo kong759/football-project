@@ -12,7 +12,6 @@
 <!-- css -->
 <link rel="stylesheet" type="text/css"
 	href="/resources/css/gamelist.css" />
-	
 <link rel="stylesheet" type="text/css" href="/resources/css/default.css" />
 
 
@@ -89,13 +88,12 @@
 			<h1>Recent Meetings</h1>
 			<c:forEach items="${gamelist.gameInfos }" var="gameInfo">
 
-				<div id="div_con2"  
-				style=" cursor: pointer;" onclick="location.href='gamelist';">
+				<div id="div_con2">
 					게임번호 #${gameInfo.id}
 					게임이름# ${gameInfo.name } <br /> 
-			 	 	참가하는 팀# ${teamParticipate.teamId} 
-				<%--	게임스코어 #${gameRound.score } --%>
-                    
+					참가하는 팀# ${teamParticipate.teamId}
+					게임스코어 #${gameRound.score }
+
 					<!-- >>>>>>> dev -->
 				</div>
 			</c:forEach>
@@ -104,12 +102,7 @@
 		<br> <br>
 
 
-<!-- Child 부분~~-->
-	<!-- <form action="/gamelist/insertgame" method="post">	
-        TEAMID<input type="text" value="3" name="teamId">
-		<button type="submit"  onclick="window.close()">만들기!</button>
-		<button onclick="window.close()">닫기</button> -->
-		<!-- ~~ Child 부분 -->
+
 
 
 		<div id="div_menu3" class="vertical-menu">
@@ -154,12 +147,17 @@
 				.getElementById("pInput").value;
 	}
 	
+	
+	
 
+	
+	
+	
+	
+
+	
+	
 </script>
-
-
-
-
 
 <!-- Parent -->
 
@@ -404,7 +402,6 @@ rgba
 <!-- >>>>>>> dev -->
 <!-- add script here! -->
 <script>
-
 window.onload = function() {
 	  initPage("<%=session.getAttribute("userId")%>");
 teamlist.setSearchEvent();
